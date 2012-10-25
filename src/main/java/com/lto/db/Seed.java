@@ -1,10 +1,10 @@
-package com.edify.db;
+package com.lto.db;
 
-import com.edify.config.ApplicationConfig;
-import com.edify.model.Role;
-import com.edify.model.User;
-import com.edify.repositories.RoleRepository;
-import com.edify.repositories.UserRepository;
+import com.lto.config.ApplicationConfig;
+import com.lto.model.Role;
+import com.lto.model.User;
+import com.lto.repositories.RoleRepository;
+import com.lto.repositories.UserRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

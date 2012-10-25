@@ -1,7 +1,7 @@
-package com.edify.config;
+package com.lto.config;
 
-import com.edify.web.servlet.EnvironmentInterceptor;
-import com.edify.web.support.i18n.CustomReloadableResourceBundleMessageSource;
+import com.lto.web.servlet.EnvironmentInterceptor;
+import com.lto.web.support.i18n.CustomReloadableResourceBundleMessageSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

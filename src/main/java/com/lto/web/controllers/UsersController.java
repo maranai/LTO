@@ -1,8 +1,8 @@
-package com.edify.web.controllers;
+package com.lto.web.controllers;
 
-import com.edify.model.User;
-import com.edify.repositories.RoleRepository;
-import com.edify.repositories.UserRepository;
+import com.lto.model.User;
+import com.lto.repositories.RoleRepository;
+import com.lto.repositories.UserRepository;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

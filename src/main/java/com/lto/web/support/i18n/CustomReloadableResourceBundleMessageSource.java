@@ -1,4 +1,4 @@
-package com.edify.web.support.i18n;
+package com.lto.web.support.i18n;
 
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 

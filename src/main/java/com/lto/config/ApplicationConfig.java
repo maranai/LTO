@@ -1,4 +1,4 @@
-package com.edify.config;
+package com.lto.config;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 import liquibase.integration.spring.SpringLiquibase;
@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  * @since 9/2/12 11:25 AM
  */
 @Configuration
-@ComponentScan(basePackages = "com.edify",
+@ComponentScan(basePackages = "com.lto",
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class))
 @ImportResource({"classpath:META-INF/spring/applicationContext-security.xml",
         "classpath:META-INF/spring/applicationContext-repositories.xml"})
@@ -88,7 +88,7 @@ public class ApplicationConfig {
         //Read from a file location (user for servers)
         resourceLocations.addAll(Arrays.asList(resourcePatternResolver.getResources("file:/srv/config/*.properties")));
         //This resource allows developers to override any app property for their development environment
-        resourceLocations.add(resourcePatternResolver.getResource(String.format("file:%s/.gradle/changeme.properties", System.getProperty("user.home"))));
+        resourceLocations.add(resourcePatternResolver.getResource(String.format("file:%s/.gradle/lto.properties", System.getProperty("user.home"))));
         Resource[] resources = new Resource[resourceLocations.size()];
         p.setLocations(resourceLocations.toArray(resources));
         return p;
@@ -144,7 +144,7 @@ public class ApplicationConfig {
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(dataSource());
         localContainerEntityManagerFactoryBean.setPersistenceProvider(persistenceProvider());
-        localContainerEntityManagerFactoryBean.setPackagesToScan("com.edify.model");
+        localContainerEntityManagerFactoryBean.setPackagesToScan("com.lto.model");
         localContainerEntityManagerFactoryBean.setJpaDialect(jpaDialect());
         Properties jpaProperties = new Properties();
         jpaProperties.setProperty("hibernate.dialect", hibernateDialect);

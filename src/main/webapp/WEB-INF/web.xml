@@ -23,7 +23,7 @@
 
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>changeme.root</param-value>
+        <param-value>lto.root</param-value>
     </context-param>
 
     <context-param>
@@ -33,7 +33,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>com.edify.config.ApplicationConfig, com.edify.config.WebConfig</param-value>
+        <param-value>com.lto.config.ApplicationConfig, com.lto.config.WebConfig</param-value>
     </context-param>
 
     <filter>

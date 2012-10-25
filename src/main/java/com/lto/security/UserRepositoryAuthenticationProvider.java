@@ -1,6 +1,6 @@
-package com.edify.security;
+package com.lto.security;
 
-import com.edify.repositories.UserRepository;
+import com.lto.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

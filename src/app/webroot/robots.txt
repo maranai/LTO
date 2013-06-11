@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /testrunner/
+Disallow: /content/
+Disallow: /dummy_content/

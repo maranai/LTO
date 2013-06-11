@@ -1,0 +1,172 @@
+
+
+body{
+    background: url(/img/gray-pattern.jpg);
+
+}
+.header, header{
+    padding-top: 30px;
+    height: 100px;
+    background: @white url('/img/logo-Lto_attendance_tracker.jpg') no-repeat 10px 30px;
+    .header_info{
+        position:relative;
+        padding: 80px 20px 0;
+        span{
+            padding-left:6px;
+            border-left: 1px solid @gray;
+            &:first-child{
+                border-left:0;
+            } 
+        }
+    }
+}
+.content{
+    padding-top: 80px;
+    /* min-height: 400px; */
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    background: url(/img/teal-pattern.jpg);
+    color:@grayLight;
+    font-size: @fontSizeSmall;
+    line-height: 45px;
+    .footer_nav{
+        ul {
+            margin-bottom: 0;
+            list-style: none;
+            li{
+                display: inline;
+                a{
+                  color:@grayLight;  
+                }
+            }
+        }
+    }
+}
+
+.login-form{
+    .border-radius(10px);
+}
+
+.tabs_body{
+    min-height: 20px;
+    padding: 20px 5px;
+    margin-bottom: 20px;
+    background-color: @white;
+    border: 1px solid #e3e3e3;
+    .border-radius(10px);
+    .box-shadow(0px 5px 10px 0px @gray);
+}
+.tabs_menu{
+    margin-top: -57px;
+    li{
+        &.active{
+            a{
+            color: @blue;
+            background-color: @white;
+            }
+
+        }
+        &:hover{
+            a{
+              color: @blue;
+            }
+        }
+        a{
+            font-size: @fontSizeLarge;
+            color: @blue;
+            .border-radius(10px 10px 0 0); 
+            background-color: @grayLight;
+
+        }
+    }
+}
+
+.table {
+ .heading{
+    background: @blue !important;
+    color:@grayLight;
+    font-weight: normal;
+  }
+}
+.paging_lto{
+    ul{
+        padding-top: 16px;
+        list-style: none;
+        li{
+            font-size: @fontSizeSmall;
+            display: inline;
+            margin-right: 10px ;
+        }
+        .prev, .next {
+            a {
+                font-weight: bold;
+                color:@red;
+            }
+            &.disabled{
+                visibility: hidden;
+            }
+        }
+    
+    }
+}
+.dataTables_wrapper {
+    .clearfix();
+}
+.dataTables_filter{
+    font-size: @fontSizeLarge;
+    color:@blueLight;
+    input{
+        font-size: @baseFontSize;
+        color: @grayDark;
+        margin-top: 8px;
+        margin-left: 6px;
+    }
+}
+.table_wrapper{
+    padding: 0 30px;
+}
+.detail_table_wrapper{
+    visibility: hidden;
+    .data{
+        background: @grayLight;
+        .border-radius(10px);
+
+        .assitance{
+            text-align: center;
+            .assisted{
+                color:@green;
+            }
+            .no_assisted{
+                color:@red;
+            }
+        }
+    }
+}
+
+
+body.login{
+    background:@white;
+
+    .login-form{
+        background: url(/img/gray-pattern.jpg);
+        input{
+            font-size: 17.5px;
+            min-height: 40px;
+        }
+        h3{
+            color:@grayDark;
+        }
+    }
+    .header, header{
+        background-position: center 40px;
+    }
+
+}
+
+.scroll_div {
+    height: 320px;
+    overflow: auto;
+}

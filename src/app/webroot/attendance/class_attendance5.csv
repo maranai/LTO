@@ -1,0 +1,35 @@
+"First Name","Last Name",Region,University,Program,Classroom
+Corp,Member,"Region 01","University 01","Program 01","Classroom 01"
+,,,,,,"Session Date",Hours
+,,,,,,2013-05-21,5,"Child Name",Checked
+,,,,,,,,"Ana Williams",1
+,,,,,,,,"Juan Gonzalez",1
+,,,,,,,,"Maria Mora",1
+,,,,,,,,"Pedro Castro",1
+
+,,,,,,2013-05-30,2,"Child Name",Checked
+,,,,,,,,"Ana Williams",0
+,,,,,,,,"Juan Gonzalez",1
+,,,,,,,,"Maria Mora",0
+,,,,,,,,"Pedro Castro",0
+
+Team,Lead,"Region 01","University 01","Program 01","Classroom 01"
+,,,,,,"Session Date",Hours
+,,,,,,2013-05-14,1,"Child Name",Checked
+,,,,,,,,"Ana Williams",1
+,,,,,,,,"Juan Gonzalez",1
+,,,,,,,,"Maria Mora",1
+,,,,,,,,"Pedro Castro",1
+
+,,,,,,2013-05-15,3,"Child Name",Checked
+,,,,,,,,"Ana Williams",0
+,,,,,,,,"Juan Gonzalez",1
+,,,,,,,,"Maria Mora",1
+,,,,,,,,"Pedro Castro",1
+
+,,,,,,2013-05-30,7,"Child Name",Checked
+,,,,,,,,"Ana Williams",0
+,,,,,,,,"Juan Gonzalez",0
+,,,,,,,,"Maria Mora",1
+,,,,,,,,"Pedro Castro",1
+

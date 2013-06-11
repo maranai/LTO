@@ -1,0 +1,93 @@
+/* ///////////////////////////
+Hijack Specific CSS
+Please feel free to modify to meet your needs
+If you see areas of improvement please let us know!
+/////////////////////////// */ 
+.hjsel_container{
+	/* padding-top: 6px; */
+}
+.hjsel_select 
+{
+	border: solid 0 #e0e0e0; 
+	/* background: #fff; */
+	
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;	
+
+}
+
+input[type=text].hjsel_txtbox 
+{
+	cursor: pointer;
+	background-color: transparent !important;
+	border: solid 0 #fff !important;
+	margin-left: 2px;
+	border-radius:0;
+	color: #635850 !important;
+	width: 40%;
+	-webkit-appearance:none;
+	box-shadow:none;
+	font-size: 18px;
+	font-weight: bold;
+	line-height:20px;
+		text-overflow: ellipsis;
+		height: 26px;
+
+}
+
+.hjsel_options 
+{
+	display: none;
+	position: absolute;
+	z-index: 999;
+	
+	background: #fff;
+	border: solid 1px #ccc;
+	border-top: 1px #eee solid;
+
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+ 	min-width: 214px;
+ 		color: #635850 !important;
+
+}
+
+.hjsel_options ul
+{
+	padding: 0;
+	margin: 0;
+	max-height: 400px;
+	overflow: auto;
+}
+
+.hjsel_options li
+{
+	list-style: none;
+	padding: 0 3px;
+	line-height:30px;
+	overflow: hidden;
+}
+
+.hjsel_options_hover
+{
+	background: Highlight;
+	color: HighlightText;
+	cursor: pointer;
+}
+
+.hjsel_ddImage
+{
+	cursor: pointer;
+	margin-bottom: 2px;
+}
+
+.hjsel_ddCancel
+{
+	cursor: pointer;
+	margin: 0 5px 1px 0;
+}

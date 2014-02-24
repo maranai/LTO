@@ -1,11 +1,11 @@
 <?php
-App::uses('UsuariosController', 'Controller');
+App::uses('UsuarioController', 'Controller');
 
 /**
- * UsuariosController Test Case
+ * UsuarioController Test Case
  *
  */
-class UsuariosControllerTest extends ControllerTestCase {
+class UsuarioControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures

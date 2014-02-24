@@ -80,18 +80,18 @@ class Usuario extends AppModel {
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
+				'allowEmpty' => true,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'telefono' => array(
-			'phone' => array(
-				'rule' => array('phone'),
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'allowEmpty' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -100,8 +100,8 @@ class Usuario extends AppModel {
 			'phone' => array(
 				'rule' => array('phone'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
+//				'allowEmpty' => true,
+				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),

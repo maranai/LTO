@@ -1,12 +1,7 @@
 /*
-Orange:			EE872A
-Green:			8AC007
-Lightgreen:		e5eecc
-Blue:			00376F
-DarkGreyBg:		555555
-LightGreyBg:	F6F4F0
-GreyBorder:		D4D4D4
-Pink:			B4009E
+Naranja Base:			FE7200
+Naranja Hover:          EE620D
+Background Blue:        00376F
 */
 
 /*Styles to keep*/
@@ -60,10 +55,14 @@ body, p, h1, h2, h3, h4, table, td, th, ul, ol, textarea, input {
 
 #topnav {
     margin-top: 24px;
-    word-spacing: 12px;
+    /*word-spacing: 12px;*/
     font-size: 16px;
     vertical-align: middle;
     float: right;
+    padding-right: 10px;
+}
+
+a.topnav{
     padding-right: 10px;
 }
 
@@ -74,7 +73,7 @@ a.topnav:link, a.topnav:visited {
 }
 
 a.topnav:hover, a.topnav:active {
-    color: #ff7f50;
+    color: #FE7200;
     text-decoration: none;
 }
 
@@ -106,7 +105,8 @@ a.topnav:hover, a.topnav:active {
     top:145px;
 }
 
-#buscadorCargas{
+#rightSection{
+    margin-top: 10px;
     background-color: #00376F;
     width: 390px;
     max-width: 390px;
@@ -115,7 +115,7 @@ a.topnav:hover, a.topnav:active {
     z-index: 100;
 }
 
-#buscadorCargasHeader{
+#rightSectionHeader{
     background-color: #006FDB;
     width: 390px;
     height: 40px;
@@ -127,10 +127,64 @@ a.topnav:hover, a.topnav:active {
     text-align: center;
     vertical-align: middle;
     color: #ffffff;
-    font-size: 18px;
-    font-weight: lighter;
+    font-size: 16px;
 }
 
+#rightSectionContent{
+    padding: 20px;
+}
+
+#rightSectionContent table{
+    padding-left: 10px;
+    width: 100%;
+}
+
+#rightSectionContent table td:first-child{
+    text-align: left;
+}
+
+#rightSectionContent fieldset{
+    border: none;
+    width: 130px;
+}
+
+#rightSectionContent label {
+    color: #ffffff;
+    float: left;
+    text-align: left;
+    padding-bottom: 15px;
+}
+
+#rightSectionContent input[type="text"]{
+    text-align: left;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+#rightSectionContent input[type="submit"]{
+    background-color: #FE7200;
+    color: #ffffff;
+    text-decoration:none;
+    border: none;
+    padding: 10px;
+}
+
+#rightSectionContent input[type="submit"]:hover{
+    background-color: #EE620D;
+    text-decoration:none;
+    border: none;
+}
+
+#rightSectionContent a{
+    color: #ffffff;
+    text-decoration:none;
+}
+
+#rightSectionContent a:hover{
+    text-decoration:underline;
+}
 
 #subHeaderDivider {
     background: linear-gradient(to bottom right, #02407D, #367889);
@@ -140,11 +194,13 @@ a.topnav:hover, a.topnav:active {
 
 .belowTopnav {
     text-align: center;
+    min-height: 100px;
+    padding-bottom:20px;
 }
 
 .page {
     width: 1110px;
-    border: 1px solid;
+    /*border: 1px solid;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -158,22 +214,22 @@ a.topnav:hover, a.topnav:active {
     text-align: left;
     max-width: 50%;
     margin: 30px;
-    border: 1px solid;
+    /*border: 1px solid;*/
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.page .twoColumns h2{
+h2.subSection{
     font-weight: normal;
 }
 
 
-.page .twoColumns h4{
+h4.subSection{
     font-weight: normal;
     color: #114C86;
 }
 
-.page .twoColumns p{
+p.subSection{
     color: #959595;
 }
 
@@ -182,8 +238,10 @@ a.topnav:hover, a.topnav:active {
     float: right;
     display: inline-block;
     min-width: 35%;
-    border: 1px solid;
-    margin: 30px;
+    /*border: 1px solid;*/
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 .page h2{
@@ -223,6 +281,39 @@ a.topnav:hover, a.topnav:active {
 
 #footerContent {
 
+}
+
+.truckBackgroundDiv{
+    background-origin: content-box;
+    background-position: left top;
+    background-image: url('../img/ftotruck.png');
+    background-repeat: no-repeat;
+    min-height: 330px;
+    width: 1110px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.truckBackgroundDivContent{
+    padding-left: 573px;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.orangeButton{
+    background-color: #FE7200;
+    color: #ffffff;
+    text-decoration:none;
+    border: none;
+    padding: 10px;
+}
+
+.orangeButton:hover{
+    background-color: #EE620D;
+    text-decoration:none;
+    border: none;
 }
 
 /*#footerAbout {word-spacing:6px;font-size:10px;padding-right:62px;padding-top:19px;float:right;text-align:right;}*/

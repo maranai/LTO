@@ -38,18 +38,15 @@ class AppController extends Controller {
 //        'DebugKit.Toolbar',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'posts',
+                'controller' => 'home',
                 'action' => 'index'
             ),
             'logoutRedirect' => array(
-                'controller' => 'pages',
-                'action' => 'display',
-                'home'
+                'controller' => 'home',
+                'action' => 'index'
             )
         )
     );
-
-
 
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');

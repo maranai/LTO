@@ -44,8 +44,8 @@ $title_for_layout = 'Algo main';
     <div class="page">
         <div id="topImage"></div>
         <div id='topnav'>
-            <a class='topnav visited' target='_top' href=''>Inicio</a>
-            <a class='topnav' target='_top' href=''>Para transportistas</a>
+            <a class='topnav visited' target='_top' href='/home'>Inicio</a>
+            <a class='topnav' target='_top' href='/transport/index'>Para transportistas</a>
             <a class='topnav' target='_top' href=''>¿Necesita transportar su carga?</a>
             <a class='topnav' target='_top' href=''>Cont&aacute;ctenos</a>
         </div>
@@ -57,10 +57,12 @@ $title_for_layout = 'Algo main';
 
 <div id='subHeaderDivider'></div>
 <div class='belowTopnav'>
+    <div style="padding-top: 5px; padding-bottom: 5px;">
     <div class='page'>
         <div>
             <?php echo $this->fetch('mainPage'); ?>
         </div>
+    </div>
     </div>
 </div>
 <div class="pageDividerWrapper">

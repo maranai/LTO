@@ -1,12 +1,13 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Usuarios Controller
+ * Usuario Controller
  *
  * @property Usuario $Usuario
  * @property PaginatorComponent $Paginator
  */
-class UsersController extends AppController {
+//App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
+class UsuariosController extends AppController {
 
 /**
  * Components
@@ -22,7 +23,7 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->Usuario->recursive = 0;
-		$this->set('usuarios', $this->Paginator->paginate());
+		$this->set('usuario', $this->Paginator->paginate());
 	}
 
 /**
@@ -55,8 +56,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
 			}
 		}
-		$rols = $this->Usuario->Rol->find('list');
-		$this->set(compact('rols'));
+//		$rols = $this->Usuario->Rol->find('list');
+//		$this->set(compact('rols'));
 	}
 
 /**
@@ -104,4 +105,44 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('The usuario could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        // Allow users to register and logout.
+        $this->Auth->allow('add', 'login', 'logout');
+    }
+
+    public function login() {
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                return $this->redirect($this->Auth->redirect());
+            }
+            $this->Session->setFlash(__('Invalid username or password, try again'));
+        } else {
+            $this->Session->setFlash(
+                __('Username or password is incorrect'),
+                'default',
+                array(),
+                'auth'
+            );
+        }
+    }
+
+    public function logout() {
+        return $this->redirect($this->Auth->logout());
+    }
+
+    public function beforeSave($options = array()) {
+        if (isset($this->data[$this->alias]['password'])) {
+            $passwordHasher = new SimplePasswordHasher();
+            $this->data[$this->alias]['password'] = $passwordHasher->hash(
+                $this->data[$this->alias]['password']
+            );
+        }
+        return true;
+    }
+
+
+
+}

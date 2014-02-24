@@ -5,9 +5,9 @@
  */
 
 $this->start('customHeadContent');
-    echo $this->Html->script('/js/bjqs-1.3.min');
-    echo $this->Html->script('/js/mainPage');
-    echo $this->Html->css('/css/bjqs');
+echo $this->Html->script('/js/bjqs-1.3.min');
+echo $this->Html->script('/js/mainPage');
+echo $this->Html->css('/css/bjqs');
 $this->end();
 
 $this->start('pageDividerContent'); ?>
@@ -51,31 +51,70 @@ $this->start('subHeader'); ?>
 $this->start('mainPage'); ?>
 <div class="twoColumns">
     <div class="leftColumn">
-        <h2>¿Qui&eacute;nes somos?</h2>
-        <h4>aspdfaspdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis asdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis asdf</h4>
-        <p>fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd.
-            ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dffsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa df</p>
-        <p>fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif saa dfsadfa dsfoasd.
+        <h2 class="subSection">¿Qui&eacute;nes somos?</h2>
+        <h4 class="subSection">aspdfaspdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis
+            asdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis asdf</h4>
+
+        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi
+            fios aifiosa dfsadfa dsfoasd.
+            ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dffsadfa
+            dsfoasd ifhoias dhof adhosif sadi fios aifiosa df</p>
+
+        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif saa dfsadfa dsfoasd.
             ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhaifiosa df</p>
     </div>
 
     <div class="rightColumn">
-        <div id="buscadorCargas">
-            <div id="buscadorCargasHeader">
+        <div id="rightSection">
+            <div id="rightSectionHeader">
                 Buscador de Cargas
             </div>
-            fasdipfhasuhdfasdf
+            <div id="rightSectionContent">
+
+                <!--                    --><?php //echo $this->Session->flash('auth'); ?>
+<!--                --><?php //echo $this->Form->create('Usuario'); ?>
+<!--                <fieldset>-->
+<!--                    --><?php
+//                    echo $this->Form->input('usuario');
+//                    echo $this->Form->input('clave');
+//                    ?>
+<!--                </fieldset>-->
+<!--                <table>-->
+<!--                    <tr>-->
+<!--                        <td><a class="olvidoClave">Olvid&eacute; mi clave</a></td>-->
+<!--                        <td>--><?php //echo $this->Form->end('Ingresar', array("cssClass" => "orangeButton")); ?><!--</td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+
+
+            </div>
+
         </div>
     </div>
-
-
 </div>
 <?php $this->end();
 
 $this->start('underDividerContent'); ?>
-<h2>
-    este es el content debajo del divider
-</h2>
+
+<div class="truckBackgroundDiv">
+    <div class="truckBackgroundDivContent">
+        <h2 class="subSection">Preguntas Frecuentes</h2>
+        <h4 class="subSection">aspdfaspdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis
+            asdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis
+            asdf</h4>
+
+        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif
+            sadi fios aifiosa dfsadfa dsfoasd.
+            ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dffsadfa
+            dsfoasd ifhoias dhof adhosif sadi fios aifiosa df</p>
+
+        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif saa dfsadfa dsfoasd.
+            ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhaifiosa df</p>
+        <input class="orangeButton" type="submit" value="Leer más ..."/>
+    </div>
+
+</div>
+
 <?php $this->end();
 ?>
 

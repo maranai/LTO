@@ -2,7 +2,34 @@
 Naranja Base:			FE7200
 Naranja Hover:          EE620D
 Background Blue:        00376F
+Azul ventanas modales:  01468B
 */
+
+
+/*Utils*/
+
+.hide{
+    display: none;
+}
+
+.alignLeft{
+    text-align: left;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+.spacedTopBottom15{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.spacedTopBottom35{
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
 
 /*Styles to keep*/
 
@@ -21,6 +48,10 @@ body {
 
 body, p, h1, h2, h3, h4, table, td, th, ul, ol, textarea, input {
     font-family: verdana, helvetica, arial, sans-serif;
+}
+
+a:hover {
+    cursor: hand;
 }
 
 .sectionTitle {
@@ -64,6 +95,7 @@ body, p, h1, h2, h3, h4, table, td, th, ul, ol, textarea, input {
 
 a.topnav{
     padding-right: 10px;
+    cursor: hand;
 }
 
 a.topnav:link, a.topnav:visited {
@@ -163,13 +195,6 @@ a.topnav:hover, a.topnav:active {
     margin-bottom: 15px;
 }
 
-#rightSectionContent input[type="submit"]{
-    background-color: #FE7200;
-    color: #ffffff;
-    text-decoration:none;
-    border: none;
-    padding: 10px;
-}
 
 #rightSectionContent input[type="submit"]:hover{
     background-color: #EE620D;
@@ -177,13 +202,17 @@ a.topnav:hover, a.topnav:active {
     border: none;
 }
 
+
+
 #rightSectionContent a{
     color: #ffffff;
+    font-weight: lighter;
     text-decoration:none;
 }
 
 #rightSectionContent a:hover{
     text-decoration:underline;
+    cursor: hand;
 }
 
 #subHeaderDivider {
@@ -302,19 +331,83 @@ p.subSection{
     padding-right: 20px;
 }
 
-.orangeButton{
-    background-color: #FE7200;
+.orangeButtonWithBackground{
+    background-color: #EE7700;
+    background-image: url('../img/icons/arrow_right.png');
+    background-repeat: no-repeat;
+    background-position: 77% 55%;
+    background-origin: content;
+    font-size: 12px;
     color: #ffffff;
     text-decoration:none;
     border: none;
-    padding: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 40px;
+    padding-right: 50px;
+    cursor: hand;
 }
 
-.orangeButton:hover{
+.orangeButton{
+    background-color: #EE7700;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration:none;
+    border: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 40px;
+    padding-right: 40px;
+    cursor: hand;
+}
+
+.orangeButton:hover, .orangeButtonWithBackground:hover{
     background-color: #EE620D;
     text-decoration:none;
     border: none;
 }
+
+
+/*----------------------- Estilos de las Ventanas modales -----------------------*/
+
+.modalWindow{
+    display: none;
+}
+
+.modalWindow h3{
+    font-family: verdana, helvetica, arial, sans-serif;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: lighter;
+}
+
+.modalWindow label{
+    margin-right: 15px;
+}
+
+.modalWindow input[type="text"]{
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    line-height: 40px;
+}
+
+.modalWindow input[type="submit"]{
+    margin-left: 20px;
+}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {text-align:center; height:300px; width:650px; color:#FFFFFF; background-color:#01468B; padding:40px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container a {color:#ddd;}
+/*#simplemodal-container a.modalCloseImg {background:url(../img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}*/
+
+
+
+
 
 /*#footerAbout {word-spacing:6px;font-size:10px;padding-right:62px;padding-top:19px;float:right;text-align:right;}*/
 

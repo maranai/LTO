@@ -131,4 +131,25 @@ class Usuario extends AppModel {
 		)
 	);
 
+    function validateLogin($data)
+    {
+        // Search our database where the 'username' field is equal to our form input.
+        // Same with the password (this example uses PLAIN TEXT passwords, you should encrypt yours!)
+        // The second parameter tells us which fields to return from the database
+        // Here is the corresponding query:
+        // "SELECT id, username FROM users WHERE username = 'xxx' AND password = 'yyy'"
+//        $user = $this->find(array('email' => $data['email'], 'password' => $data['password']), array('id', 'email'));
+
+        $user = $this->find('first', array('fields' => array('Usuario.id', 'Usuario.email'),
+            'conditions' => array('Usuario.email' => $data['lgnEmail'], 'Usuario.password' => $data['lgnPassword'],), 'recursive' => 0));
+
+
+        if( empty($user) == false )
+        {
+            return $user;
+        }
+
+        return false;
+    }
+
 }

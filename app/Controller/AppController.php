@@ -52,5 +52,35 @@ class AppController extends Controller {
         $this->Auth->allow('index', 'view');
     }
 
+    // Check if they are logged in
+    function authenticate()
+    {
+        // Check if the session variable User exists, redirect to loginform if not
+        if(!$this->Session->check('Usuario'))
+        {
+            $this->redirect(array('controller' => 'transport', 'action' => 'transp_home'));
+            exit();
+        }
+    }
+
+    // Authenticate on every action, except the login form
+    function afterFilter()
+    {
+
+        //controllers that don't need authentication
+        //home
+        //contact
+        //transport (only home page)
+        if ($this->request->controller != "home" &&
+            $this->request->controller != "contact" &&
+            $this->request->controller != "users" &&
+            ($this->request->controller != "usuarios" && $this->request->action != 'login') &&
+            ($this->request->controller != "transport" && $this->request->action != 'index')
+        ){
+            $this->authenticate();
+
+        }
+    }
+
 
 }

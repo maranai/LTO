@@ -113,24 +113,29 @@ class UsuariosController extends AppController {
         $this->Auth->allow('add', 'login', 'logout');
     }
 
-    public function login() {
-        if ($this->request->is('post')) {
-            if ($this->Auth->login()) {
-                return $this->redirect($this->Auth->redirect());
-            }
-            $this->Session->setFlash(__('Invalid username or password, try again'));
-        } else {
-            $this->Session->setFlash(
-                __('Username or password is incorrect'),
-                'default',
-                array(),
-                'auth'
-            );
-        }
-    }
+    function login() {
+        // Check if they went here after submitting the form
 
-    public function logout() {
-        return $this->redirect($this->Auth->logout());
+        if(empty($this->data['btnSubmit']) == false)
+        {
+            // Here we validate the user by calling that method from the User model
+            if(($user = $this->Usuario->validateLogin($this->data)) != false)
+            {
+                // Write some Session variables and redirect to our next page!
+                $this->Session->setFlash('Thank you for logging in!');
+                $this->Session->write('Usuario', $user);
+
+                // Go to our first destination!
+                $this->Redirect(array('controller' => 'transport', 'action' => 'index', 'success' => '1'));
+                exit();
+            }
+            else
+            {
+                $this->Session->setFlash('Incorrect username/password!', true);
+                $this->Redirect(array('action' => 'login_form'));
+                exit();
+            }
+        }
     }
 
     public function beforeSave($options = array()) {

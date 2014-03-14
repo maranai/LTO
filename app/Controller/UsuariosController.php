@@ -1,5 +1,8 @@
 <?php
+
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
+
 /**
  * Usuario Controller
  *
@@ -16,15 +19,66 @@ class UsuariosController extends AppController {
  */
 	public $components = array('Paginator');
 
+    public $uses = array('Usuario', 'Invitacion');
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        // Allow users to register and logout.
+        $this->Auth->allow('add', 'login', 'logout', 'olvidoClave');
+    }
+
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
+
+
 		$this->Usuario->recursive = 0;
 		$this->set('usuario', $this->Paginator->paginate());
 	}
+
+
+
+
+    public function olvidoClave(){
+        if ($this->request->is('post') && isset($_POST['email'])){
+
+            $usuario = $this->Usuario->findByEmail($_POST['email']);
+            if (!empty($usuario)){
+
+                $invitacion = $this->Invitacion->create();
+
+                $invitacion['tipo']   =  'asdfadf';
+                $invitacion['codigo']    = $this->Invitacion->crearCodigo($usuario['id']);
+                $invitacion['creada_en']    = gmdate('c');
+                $invitacion['usuario_id']    = $usuario['id'];
+
+                $this->Invitacion->save($invitacion);
+
+                $email = new CakeEmail();
+                $email->from(array('soporte@fletescr.com' => 'My Site'));
+                $email->to('maranai@gmail.com');
+                $email->subject('About');
+                $email->send('My message');
+
+
+                $this->Redirect(array('controller' => 'transport', 'action' => 'index?emailConf=1'));
+                exit();
+
+            }
+
+
+
+
+
+
+
+
+
+        }
+    }
 
 /**
  * view method
@@ -106,12 +160,6 @@ class UsuariosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-
-    public function beforeFilter() {
-        parent::beforeFilter();
-        // Allow users to register and logout.
-        $this->Auth->allow('add', 'login', 'logout');
-    }
 
     function login() {
         // Check if they went here after submitting the form

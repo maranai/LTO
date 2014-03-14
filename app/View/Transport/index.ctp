@@ -19,17 +19,30 @@ $this->start('mainPage');?>
     <h3>Solicitud de Clave</h3>
     <p>Para solicitar una nueva clave, ingrese su correo electr&oacute;nico y presione enviar.</p>
     <p>Durante los pr&oacute;ximos minutos, le enviaremos instrucciones para que pueda cambiar su clave.</p>
-    <div class="spacedTopBottom35">
-    <label>Email:</label>
-    <input type="text" id="email" name="email" value="" size="50">
-    </div>
-    <div class="spacedTopBottom35">
-        <input type="submit" value="Enviar" class="orangeButton">
-        <input type="submit" value="Cancelar" class="orangeButton">
-
-    </div>
-
+    <form name="formOlvido" autocomplete="off" method="post" action="/usuarios/olvidoClave">
+        <div class="spacedTopBottom35">
+            <label>Email:</label>
+            <input placeholder="Ingrese su email" type="text" id="email" name="email" value="" size="50">
+        </div>
+        <div class="spacedTopBottom35">
+            <input id="btnOlvidoSubmit" type="submit" value="Enviar" class="orangeButton">
+            <input class="btnCancelar orangeButton" type="submit" value="Cancelar">
+        </div>
+    </form>
 </div>
+
+<div id='olvido-clave-confirm' class="modalWindow">
+    <h3>Solicitud de Clave</h3>
+    <p>Hemos enviado instrucciones para cambiar su clave a su cuenta de correo.</p>
+    <p>Por favor localice en su correo un mensaje de soporte@fletescr.com y haga click en el link inclu&iacute;do para cambiar su clave.</p><br/>
+    <p>Nota: Si usted utiliza algún filtro de correos o alguna aplicaci&oacute;n anti-spam, debe asegurarse de que nuestro mensaje no sea bloqueado. Si usted no recibe el mensaje, por favor contáctenos a <a href="mailto:soporte@fletescr.com">soporte@fletescr.com</a> </p>
+
+    <div class="spacedTopBottom35">
+        <input class="btnCancelar orangeButton" type="submit" value="Regresar">
+    </div>
+</div>
+
+<input type="hidden" id="emailSentConfirm" value="<?php if(isset($emailSent)){ echo "1"; } else {echo "0"; } ?>">
 
 <div class="twoColumns">
     <div class="leftColumn">

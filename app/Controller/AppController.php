@@ -35,7 +35,6 @@ class AppController extends Controller {
 
     public $components = array(
         'Session',
-//        'DebugKit.Toolbar',
         'Auth' => array(
             'loginRedirect' => array(
                 'controller' => 'home',
@@ -50,6 +49,7 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
+        $this->Auth->loginAction = array('controller'=>'home', 'action'=>'index');
     }
 
     // Check if they are logged in

@@ -51,7 +51,7 @@ body, p, h1, h2, h3, h4, table, td, th, ul, ol, textarea, input {
 }
 
 a:hover {
-    cursor: hand;
+    cursor: pointer;
 }
 
 .sectionTitle {
@@ -95,7 +95,7 @@ a:hover {
 
 a.topnav{
     padding-right: 10px;
-    cursor: hand;
+    cursor: pointer;
 }
 
 a.topnav:link, a.topnav:visited {
@@ -212,7 +212,7 @@ a.topnav:hover, a.topnav:active {
 
 #rightSectionContent a:hover{
     text-decoration:underline;
-    cursor: hand;
+    cursor: pointer;
 }
 
 #subHeaderDivider {
@@ -345,7 +345,7 @@ p.subSection{
     padding-bottom: 7px;
     padding-left: 40px;
     padding-right: 50px;
-    cursor: hand;
+    cursor: pointer;
 }
 
 .orangeButton{
@@ -358,14 +358,17 @@ p.subSection{
     padding-bottom: 7px;
     padding-left: 40px;
     padding-right: 40px;
-    cursor: hand;
+    cursor: pointer;
 }
 
 .orangeButton:hover, .orangeButtonWithBackground:hover{
     background-color: #EE620D;
     text-decoration:none;
     border: none;
+    cursor: pointer;
 }
+
+
 
 
 /*----------------------- Estilos de las Ventanas modales -----------------------*/

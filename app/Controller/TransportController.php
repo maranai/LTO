@@ -14,8 +14,13 @@ class TransportController extends AppController {
 
     public function index() {
 
-        $algo = gmdate('c');
+        if ($this->request->is('post')){
 
+        } else {
+            if (isset ($this->params['url']['emailConf'])){
+                $this->set('emailSent', 1);
+            }
+        }
     }
 
 }

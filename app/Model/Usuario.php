@@ -1,5 +1,4 @@
 <?php
-App::uses('AppModel', 'Model');
 /**
  * Usuario Model
  *
@@ -7,7 +6,8 @@ App::uses('AppModel', 'Model');
  */
 class Usuario extends AppModel {
 
-/**
+
+    /**
  * Use table
  *
  * @var mixed False or table name
@@ -107,6 +107,21 @@ class Usuario extends AppModel {
 			),
 		),
 	);
+
+
+    public function findByEmail($email){
+        $usuario =  $this->find('first', array('recursive' => '-1', 'conditions' => array('Usuario.email' => $email)));
+        return $usuario['Usuario'];
+    }
+
+    public function findById($userId){
+        $usuario = $this->find('first', array('recursive' => '-1', 'conditions' => array('Usuario.id' => $userId)));
+        return $usuario['Usuario'];
+    }
+
+
+
+
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

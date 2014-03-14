@@ -17,7 +17,11 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-?>
+$this->start('mainPage');
+echo "fasdfasfasdf";
+
+$this->end();
+        ?>
 <h2><?php echo __d('cake_dev', 'Missing Method in %s', h($controller)); ?></h2> <p class="error">
 	<strong><?php echo __d('cake_dev', 'Error'); ?>: </strong>
 	<?php echo __d('cake_dev', 'The action %1$s is not defined in controller %2$s', '<em>' . h($action) . '</em>', '<em>' . h($controller) . '</em>'); ?>

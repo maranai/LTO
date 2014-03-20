@@ -11,4 +11,5 @@ build
 *.iws
 /app/tmp
 /app/tmp/*
-
+.DS_Store
+/app/.DS_Store

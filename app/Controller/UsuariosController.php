@@ -19,7 +19,7 @@ class UsuariosController extends AppController {
  */
 	public $components = array('Paginator');
 
-    public $uses = array('Usuario', 'Invitacion');
+    public $uses = array('Usuario', 'Invitacion', 'Email');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -40,43 +40,55 @@ class UsuariosController extends AppController {
 	}
 
 
+    private function enviarEmailOlvido($nombre, $apellido, $invitacion, $id){
+        $url = Router::url('/forgot/forgot?invit=' . $id . '&code=' . $invitacion['codigo'], true);
+        $email = new CakeEmail('gmail');
+        $email->viewVars(array("url" => $url, "nombre" => $nombre . ' ' .$apellido));
+        $email->template('olvido-clave');
+        $email->emailFormat('html');
+        $email->from('soporte@fletescr.com');
+        $email->to('maranai@gmail.com');
+        $email->subject('Cambio de clave fletescr.com');
+        $email->send();
+    }
+
 
 
     public function olvidoClave(){
         if ($this->request->is('post') && isset($_POST['email'])){
+            if ($_POST['email'] == ""){}
+
+            $email = $this->Email->create();
+            $email['email'] = $_POST['email'];
+            if (!$this->Email->validates(array('fieldList' => array('email')))) {
+                $this->Redirect(array('controller' => 'transport', 'action' => 'index?emailError=1'));
+                exit();
+            }
 
             $usuario = $this->Usuario->findByEmail($_POST['email']);
             if (!empty($usuario)){
-
                 $invitacion = $this->Invitacion->create();
 
                 $invitacion['tipo']   =  'asdfadf';
                 $invitacion['codigo']    = $this->Invitacion->crearCodigo($usuario['id']);
-                $invitacion['creada_en']    = gmdate('c');
                 $invitacion['usuario_id']    = $usuario['id'];
 
-                $this->Invitacion->save($invitacion);
+                if ($this->Invitacion->save($invitacion)){
+                    $id = $this->Invitacion->getLastInsertID();
 
-                $email = new CakeEmail();
-                $email->from(array('soporte@fletescr.com' => 'My Site'));
-                $email->to('maranai@gmail.com');
-                $email->subject('About');
-                $email->send('My message');
+                    $this->enviarEmailOlvido($usuario['nombre'], $usuario['apellido1'], $invitacion, $id);
+
+                    $this->Redirect(array('controller' => 'transport', 'action' => 'index?emailConf=1'));
+                    exit();
+                } else {
+
+                }
 
 
-                $this->Redirect(array('controller' => 'transport', 'action' => 'index?emailConf=1'));
+            } else {
+                $this->Redirect(array('controller' => 'transport', 'action' => 'index?usrNotFound=1'));
                 exit();
-
             }
-
-
-
-
-
-
-
-
-
         }
     }
 

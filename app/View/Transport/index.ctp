@@ -22,7 +22,10 @@ $this->start('mainPage');?>
     <form name="formOlvido" autocomplete="off" method="post" action="/usuarios/olvidoClave">
         <div class="spacedTopBottom35">
             <label>Email:</label>
-            <input placeholder="Ingrese su email" type="text" id="email" name="email" value="" size="50">
+            <input placeholder="Ingrese su email" type="text" id="email" name="email" value="" size="50"><br />
+            <span id="emailUserError" class="emailUserError hide error">El email que ingres&oacute; no se encuentra registrado.</span>
+            <span id="emailFormatError" class="emailUserError hide error">Debe ingresar un email con un formato v&aacute;lido.</span>
+
         </div>
         <div class="spacedTopBottom35">
             <input id="btnOlvidoSubmit" type="submit" value="Enviar" class="orangeButton">
@@ -43,27 +46,22 @@ $this->start('mainPage');?>
 </div>
 
 <input type="hidden" id="emailSentConfirm" value="<?php if(isset($emailSent)){ echo "1"; } else {echo "0"; } ?>">
+<input type="hidden" id="olvidoUserError" value="<?php if(isset($usrNotFound)){ echo "1"; } else {echo "0"; } ?>">
+<input type="hidden" id="emailIncorrecto" value="<?php if(isset($emailError)){ echo "1"; } else {echo "0"; } ?>">
 
 <div class="twoColumns">
     <div class="leftColumn">
         <h2 class="subSection">¿Usuario Nuevo?</h2>
-        <h4 class="subSection">aspdfaspdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi
-            sihfoias dfoiau dfis
-            asdfjpaosid fjpaosi fasijfipsaj fisuahfo ihas douhfo iasdhfoiasu dfioas foi sihfoias dfoiau dfis asdf</h4>
+        <h4 class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</h4>
 
-        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias
-            dhof adhosif sadi
-            fios aifiosa dfsadfa dsfoasd.
-            ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dffsadfa
-            dsfoasd ifhoias dhof adhosif sadi fios aifiosa df</p>
+        <p class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
 
-        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhoias
-            dhof adhosif sadi
-            fios aifiosa dfsadfa dsfoafios aifiosa dfsadfa dsfoasd ifhoias dhof adhosif sadi fios aifiosa dffsadfa
-            dsfoasd ifhoias dhof adhosif sadi fios aifiosa df</p>
+        <p class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
 
-        <p class="subSection">fasdf asdfads sadfa dsfoasd ifhoias dhof adhosif saa dfsadfa dsfoasd.
-            ifhoias dhof adhosif sadi fios aifiosa dfsadfa dsfoasd ifhaifiosa df</p>
+        <p class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
     </div>
 
     <div class="rightColumn">

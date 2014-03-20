@@ -19,4 +19,10 @@
 ?>
 <?php echo $this->fetch('content'); ?>
 
-This email was sent using the CakePHP Framework, http://cakephp.org.
+<br />
+<p>
+    Atentamente,
+    El equipo de fletescr.com
+    soporte@fletescr.com
+    https://fletescr.com
+</p>

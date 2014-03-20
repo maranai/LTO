@@ -20,6 +20,12 @@ class TransportController extends AppController {
             if (isset ($this->params['url']['emailConf'])){
                 $this->set('emailSent', 1);
             }
+            if (isset ($this->params['url']['usrNotFound'])){
+                $this->set('usrNotFound', 1);
+            }
+            if (isset ($this->params['url']['emailError'])){
+                $this->set('emailError', 1);
+            }
         }
     }
 

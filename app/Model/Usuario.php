@@ -156,7 +156,8 @@ class Usuario extends AppModel {
 //        $user = $this->find(array('email' => $data['email'], 'password' => $data['password']), array('id', 'email'));
 
         $user = $this->find('first', array('fields' => array('Usuario.id', 'Usuario.email'),
-            'conditions' => array('Usuario.email' => $data['lgnEmail'], 'Usuario.password' => $data['lgnPassword'],), 'recursive' => 0));
+            'conditions' => array('Usuario.email' => $data['lgnEmail'], 'Usuario.password' => $data['lgnPassword'],),
+            'recursive' => 0));
 
 
         if( empty($user) == false )

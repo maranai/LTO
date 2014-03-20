@@ -25,6 +25,11 @@
 <body>
 	<?php echo $this->fetch('content'); ?>
 
-	<p>This email was sent using the <a href="http://cakephp.org">CakePHP Framework</a></p>
+    <p>
+        Atentamente, <br />
+        El equipo de fletescr.com <br />
+        soporte@fletescr.com <br />
+        https://fletescr.com <br />
+    </p>
 </body>
 </html>

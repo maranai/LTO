@@ -42,16 +42,13 @@
  */
 class EmailConfig {
 
-    public $contact = array('transport'     => 'Smtp',
-                            'host'          => 'smtp.gmail.com',
-                            'port'          => 25,
-                            'timeout'       => 30,
-                            'username'      => 'maranai@gmail.com',
-                            'password'      => 'Stza6Uh8',
-                            'template'      => 'default',
-                            'emailFormat'   => 'html',
-                            'client'        => null,
-                            'log'           => true);
+    public $gmail = array(
+        'host' => 'ssl://smtp.gmail.com',
+        'port' => 465,
+        'username' => 'maranai@gmail.com',
+        'password' => 'Stza6Uh8',
+        'transport' => 'Smtp'
+    );
     
     
     

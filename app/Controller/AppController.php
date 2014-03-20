@@ -74,6 +74,7 @@ class AppController extends Controller {
         if ($this->request->controller != "home" &&
             $this->request->controller != "contact" &&
             $this->request->controller != "users" &&
+            $this->request->controller != "forgot" &&
             ($this->request->controller != "usuarios" && $this->request->action != 'login') &&
             ($this->request->controller != "transport" && $this->request->action != 'index')
         ){

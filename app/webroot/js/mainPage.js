@@ -19,4 +19,20 @@ jQuery(function ($) {
 
     }
 
+    var olvidoUserError = $("#olvidoUserError").val();
+    if (olvidoUserError == 1){
+        modal = $('#olvido-clave-modal').modal();
+        $("#emailUserError").show();
+        return false;
+    }
+
+    var emailIncorrecto = $("#emailIncorrecto").val();
+    if (emailIncorrecto == 1){
+        modal = $('#olvido-clave-modal').modal();
+        $("#emailFormatError").show();
+        return false;
+    }
+
+
+
 });

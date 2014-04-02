@@ -10,7 +10,6 @@ class HomeController extends AppController {
 
     public function index() {
 
-//        $this->set('jsIncludes',array('/js/bjqs-1.3.min'));
 
     }
 

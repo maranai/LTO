@@ -33,6 +33,15 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+
+
+
+    public function setMessage($type, $message){
+        $this->Session->write('messages', array($type => $message));
+    }
+
+
+
     public $components = array(
         'Session',
         'Auth' => array(
@@ -66,6 +75,10 @@ class AppController extends Controller {
     // Authenticate on every action, except the login form
     function afterFilter()
     {
+
+        if (sizeof($this->Session->read('messages')) > 0){
+            $this->set("messages", $this->Session->read('messages'));
+        }
 
         //controllers that don't need authentication
         //home

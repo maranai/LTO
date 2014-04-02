@@ -108,6 +108,15 @@ class Invitacion extends AppModel {
 		),
 	);
 
+    function getById($id){
+
+        return $this->find('all',
+            array('conditions' => array('Invitacion.id' => $id) )
+        );
+        return $invitacion;
+
+    }
+
     public function crearCodigo($usuarioId)
     {
         return md5($usuarioId . gmdate('c') . Invitacion::$_salt);

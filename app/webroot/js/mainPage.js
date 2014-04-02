@@ -33,6 +33,7 @@ jQuery(function ($) {
         return false;
     }
 
+    $.notify('info', 'Este sitio se encuentra en construcción. Pronto estará disponible con funcionalidad útil para todos los transportistas y sus clientes.', 300);
 
 
 });

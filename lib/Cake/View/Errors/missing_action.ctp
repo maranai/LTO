@@ -18,8 +18,13 @@
  */
 
 $this->start('mainPage');
-echo "fasdfasfasdf";
-
+?>
+<br />
+<br />
+<br />
+<h1>La página que intenta acceder no fue encontrada</h1>
+    <a href="/">Volver a la p&aacute;gina principal</a>
+<?php
 $this->end();
         ?>
 <h2><?php echo __d('cake_dev', 'Missing Method in %s', h($controller)); ?></h2> <p class="error">

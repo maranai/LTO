@@ -17,7 +17,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 $title = 'Fletes Online CR';
-$title_for_layout = '';
+$title_for_layout = 'Algo main';
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,19 +29,12 @@ $title_for_layout = '';
     </title>
     <?php
     echo $this->Html->meta('icon');
+    echo $this->Html->css('styles');
     echo $this->fetch('meta');
     echo $this->fetch('css');
     echo $this->fetch('script');
 
-//    CSS imports
-    echo $this->Html->css('styles');
-    echo $this->Html->css('jquery-ui');
-    echo $this->Html->css('jquery.pnotify.default');
-    echo $this->Html->css('jquery.pnotify.default.icons');
-
-//    JS imports
-    echo $this->Html->script('/js/jquery/jquery-2.0.3.min');
-    echo $this->Html->script('/js/utils');
+    echo $this->Html->script('/js/jquery-2.0.3.min');
     echo $this->Html->script('/js/jquery.pnotify.min');
 
     echo $this->fetch('customHeadContent');
@@ -60,28 +53,14 @@ $title_for_layout = '';
     </div>
 </div>
 
-<!--subheader includes the banner for main page-->
-<?php echo $this->fetch('subHeader'); ?>
+<div class='formBelowTopNav'>
 
-<div id='subHeaderDivider'></div>
-<div class='belowTopnav'>
-    <div style="padding-top: 5px; padding-bottom: 5px;">
-    <div class='page'>
-        <div>
-            <?php echo $this->fetch('mainPage'); ?>
+        <div class='formPage'>
+            <div>
+                <?php echo $this->fetch('mainPage'); ?>
+            </div>
         </div>
-    </div>
-    </div>
-</div>
-<div class="pageDividerWrapper">
-    <?php echo $this->fetch('pageDividerContent'); ?>
-</div>
-<div class='belowTopnav'>
-    <div class='page'>
-        <div>
-            <?php echo $this->fetch('underDividerContent'); ?>
-        </div>
-    </div>
+
 </div>
 
 <div id="footer">
@@ -136,16 +115,5 @@ $title_for_layout = '';
     </div>
 </div>
 
-<!--<div class='belowTopnav'>-->
-<!--    <div class='page'>-->
-<!--        <div>-->
-<!--            --><?php //echo $this->fetch('underDividerContent'); ?>
-<!--        </div-->
-<!--    </div>-->
-<!--    <div style="clear:both;"></div>-->
-<!--</div>-->
-<!--
-<!--</div>-->
-<?php //echo $this->Js->writeBuffer(); ?>
 </body>
 </html>

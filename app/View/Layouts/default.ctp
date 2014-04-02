@@ -24,7 +24,7 @@ $title_for_layout = '';
 <head>
     <?php echo $this->Html->charset(); ?>
     <title>
-        <?php echo $title ?>:
+        <?php echo $title ?>
         <?php echo $title_for_layout; ?>
     </title>
     <?php

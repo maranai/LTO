@@ -1,5 +1,3 @@
-*.min.css
-*.min.js
 *.bak
 atlassian-ide-plugin.xml
 *.log

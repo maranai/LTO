@@ -66,21 +66,59 @@ $this->start('mainPage'); ?>
             </div>
             <div id="rightSectionContent">
 
-                <!--                    --><?php //echo $this->Session->flash('auth'); ?>
-<!--                --><?php //echo $this->Form->create('Usuario'); ?>
-<!--                <fieldset>-->
-<!--                    --><?php
-//                    echo $this->Form->input('usuario');
-//                    echo $this->Form->input('clave');
-//                    ?>
-<!--                </fieldset>-->
-<!--                <table>-->
-<!--                    <tr>-->
-<!--                        <td><a class="olvidoClave">Olvid&eacute; mi clave</a></td>-->
-<!--                        <td>--><?php //echo $this->Form->end('Ingresar', array("cssClass" => "orangeButton")); ?><!--</td>-->
-<!--                    </tr>-->
-<!--                </table>-->
+                <table style="color: white;">
+                    <tr style="height: 30px;">
+                        <td>
+                            Origen:
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <td>
+                            <select name="bcOrigen" id="bcOrigen" placeholder="Origen">
+                                <option value="1">Alajuela</option>
+                                <option value="1">Heredia</option>
+                                <option value="1">San José</option>
+                                <option value="1">Cartago</option>
+                                <option value="1">Limón</option>
+                                <option value="1">Puntarenas</option>
+                                <option value="1">Guanacaste</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <td>
+                            Destino:
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <td>
+                            <select name="bcOrigen" id="bcDestino" placeholder="bcDestino">
+                                <option value="1">Alajuela</option>
+                                <option value="1">Heredia</option>
+                                <option value="1">San José</option>
+                                <option value="1">Cartago</option>
+                                <option value="1">Limón</option>
+                                <option value="1">Puntarenas</option>
+                                <option value="1">Guanacaste</option>
+                            </select>
+                        </td>
+                    </tr>
 
+                    <tr style="height: 30px;">
+                        <td>
+                            Tipo de Mercancía
+                        </td>
+                    </tr>
+                    <tr style="height: 30px;">
+                        <td>
+                            <input placeholder="Mercancía">
+                        </td>
+                    </tr>
+
+                    <tr style="height: 55px; vertical-align:bottom;" class="paddingTop5">
+                        <td><input name="btnSubmit" type="submit" id="btnSubmit" value="Buscar" class="orangeButtonWithBackground"></td>
+                    </tr>
+                </table>
 
             </div>
 

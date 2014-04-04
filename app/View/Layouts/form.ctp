@@ -34,7 +34,7 @@ $title_for_layout = 'Algo main';
     echo $this->fetch('css');
     echo $this->fetch('script');
 
-    echo $this->Html->script('/js/jquery-2.0.3.min');
+    echo $this->Html->script('/js/jquery/jquery-2.0.3.min');
     echo $this->Html->script('/js/jquery.pnotify.min');
 
     echo $this->fetch('customHeadContent');

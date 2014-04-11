@@ -17,25 +17,27 @@ $this->start('mainPage'); ?>
     <div class="box">
         <div class="box-shadow"></div>
         <div class="box-gradient">
+
+            <?php echo $this->Form->create('ContactForm', array('novalidate')); ?>
             <table>
                 <tr>
                     <td>
-                        Nombre
+                        Nombre (*)
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input size="60" type="text" name="ctNombre" id="ctNombre" />
+                        <?php echo $this->Form->input('ctNombre', array('label' => false, 'size' => '60')); ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Correo electr&oacute;nico
+                        Correo electr&oacute;nico (*)
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input size="60" type="text" name="ctEmail" id="ctEmail" />
+                        <?php echo $this->Form->input('ctEmail', array('placeholder' => 'Formato correcto: ejemplo@fletescr.com', 'label' => false, 'size' => '60')); ?>
                     </td>
                 </tr>
                 <tr>
@@ -45,23 +47,32 @@ $this->start('mainPage'); ?>
                 </tr>
                 <tr>
                     <td>
-                        <input size="60" type="text" name="ctTelefono" id="ctTelefono" />
+                        <?php echo $this->Form->input('ctTelefono', array('label' => false, 'size' => '60')); ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Su comentario
+                        Su comentario (*)
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <textarea cols="85" rows="5"  name="ctComentario" id="ctComentario"></textarea>
+                        <?php echo $this->Form->textarea('ctComentario', array('placeholder' => 'Ingrese su comentario o sugerencia...', 'label' => false, 'cols' => "100",  'rows' => "5")); ?>
                     </td>
+                </tr>
+                <tr>
+                    <td>Los campos marcados con (*) son obligatorios</td>
                 </tr>
                 <tr class="paddingTop5">
-                    <td><input name="btnSubmit" type="submit" id="btnSubmit" value="Enviar" class="orangeButton"></td>
+                    <td>
+                        <?php
+                        $options = array('label' => 'Enviar', 'class' => 'orangeButton', 'div' => false);
+                        echo $this->Form->end($options);
+                    ?>
+                    </td>
                 </tr>
             </table>
+            </form>
         </div>
     </div>
     <br />
@@ -70,10 +81,8 @@ $this->start('mainPage'); ?>
         Log&iacute;stica de transporte Online
     </h2>
     <h4>
-        info@fletescr.com
+        <a href="mailto:info@fletescr.com">info@fletescr.com</a>
     </h4>
-
-
 
 </div>
 <?php

@@ -8,10 +8,6 @@ class TransportController extends AppController {
 
     var $helpers = array('Form');
 
-//    function login_form() {
-//        $asd = 'sdf';
-//    }
-
     public function index() {
 
         if ($this->request->is('post')){

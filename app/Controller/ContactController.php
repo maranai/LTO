@@ -12,7 +12,11 @@ App::uses('AppController', 'Controller');
 
 class ContactController extends AppController {
 
-    public $uses = array('Usuario', 'Invitacion');
+    public $helpers = array('Html', 'Form');
+
+    public $components = array('Session');
+
+    public $uses = array('ContactForm', 'Usuario');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -24,6 +28,17 @@ class ContactController extends AppController {
     public function index(){
 
         $this->layout = 'form';
+
+        if ($this->request->is('post')){
+            $this->ContactForm->set($this->data);
+            if (($this->ContactForm->validates())){
+                $adf = 234;
+
+            }
+        }
+
+
+
 
     }
 

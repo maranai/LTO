@@ -1,8 +1,7 @@
 <?php
-$this->start('mainPage'); ?>
-
-
-
+$this->start('mainPage');
+//echo $this->validationErrors;
+?>
 
 <div class="mainForm">
     <h1>
@@ -72,7 +71,6 @@ $this->start('mainPage'); ?>
                     </td>
                 </tr>
             </table>
-            </form>
         </div>
     </div>
     <br />

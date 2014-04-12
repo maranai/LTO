@@ -41,6 +41,17 @@ textarea{
     font-size: 12px;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.white{
+    color: #FFFFFF !important;
+}
+
+.blue{
+    color: #00376F !important;
+}
 
 /* Mensajes de error */
 
@@ -511,12 +522,23 @@ p.subSection{
     color:#FFFFFF;
     background-color:#01468B;
     padding:40px;
-    overflow-y: hidden;
+    overflow: visible;
 }
+
+#simplemodal-container p,
+#simplemodal-container h3{
+    color: #FFFFFF;
+}
+
 #simplemodal-container .simplemodal-data {
     padding:8px;
-    overflow-y: hidden;
+    overflow-y: visible;
 }
+
+#simplemodal-container .simplemodal-wrap{
+    overflow: visible !important;
+}
+
 #simplemodal-container a {color:#ddd;}
 
 
@@ -528,12 +550,11 @@ p.subSection{
     padding-top: 20px;
 }
 
-.mainForm h1, h2, h3, h4, p{
+.mainForm h1, .mainForm h2, .mainForm h3, .mainForm h4, .mainForm p{
     font-weight: normal;
     font-family: verdana, helvetica, arial, sans-serif;
     color: #00376F;
 }
-
 
 .box {
     position:relative;
@@ -543,6 +564,11 @@ p.subSection{
     height: 545px;
     color: white;
     font-size: 14px;
+    clear: both;
+}
+
+.shortNotification{
+    height: 350px !important;
 }
 
 .box-gradient {
@@ -554,7 +580,28 @@ p.subSection{
     -webkit-border-radius:10px;
     background-color: #00376F;
     margin-top: 10px;
+    text-align: center;
 }
+
+.box-gradient-content{
+    padding: 60px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.box-gradient-content h1, .box-gradient-content h2, .box-gradient-content h3, .box-gradient-content p{
+    color: #FFFFFF !important;
+}
+
+.box-gradient-content a{
+    color: #FE7200;
+    text-decoration: none;
+}
+
+.box-gradient-content a:hover{
+    color: #EE620D;
+}
+
 
 .box-shadow {
     position:absolute;

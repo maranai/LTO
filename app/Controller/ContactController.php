@@ -8,6 +8,7 @@
  */
 
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 
 class ContactController extends AppController {
@@ -21,7 +22,12 @@ class ContactController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         // Allow users to register and logout.
-        $this->Auth->allow('index');
+        $this->Auth->allow('index', 'msg_enviado');
+    }
+
+    public function msg_enviado(){
+        $this->layout = 'form';
+
     }
 
 
@@ -32,14 +38,23 @@ class ContactController extends AppController {
         if ($this->request->is('post')){
             $this->ContactForm->set($this->data);
             if (($this->ContactForm->validates())){
-                $adf = 234;
+                $email = new CakeEmail('gmail');
+                $email->viewVars(array("nombre" => $this->data['ContactForm']['ctNombre'],
+                    "mensaje" => $this->data['ContactForm']['ctComentario'],
+                    "email" => $this->data['ContactForm']['ctEmail'],
+                    "telefono" => $this->data['ContactForm']['ctTelefono']));
+                $email->template('contactenos');
+                $email->emailFormat('html');
+                $email->from('soporte@fletescr.com');
+                $email->to('maranai@gmail.com');
+                $email->subject('Mensaje enviado a través de fletescr.com');
+                $email->send();
+
+                $this->Redirect(array('controller' => 'contact', 'action' => 'msg_enviado'));
+                exit();
 
             }
         }
-
-
-
-
     }
 
 }

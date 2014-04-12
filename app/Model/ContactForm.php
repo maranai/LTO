@@ -28,11 +28,11 @@ class ContactForm extends AppModel {
             )
         ),
         'ctComentario' => array(
-            'alphaNumeric' => array(
-                'rule'     => 'alphaNumeric',
-                'required' => true,
-                'message'  => 'Debe incluir su comentario o sugerencia'
-            )
+            "notEmpty"  => array(
+                "rule"          => "notEmpty",
+                "message"       => "Debe incluir su comentario o sugerencia.",
+            ),
+
         ),
         'ctEmail' => array(
             'alphanumeric' => array(

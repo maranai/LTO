@@ -40,14 +40,14 @@ class UsuariosController extends AppController {
 	}
 
 
-    private function enviarEmailOlvido($nombre, $apellido, $invitacion, $id){
+    private function enviarEmailOlvido($nombre, $apellido, $emailTo, $invitacion, $id){
         $url = Router::url('/forgot/forgot?invit=' . $id . '&code=' . $invitacion['codigo'], true);
         $email = new CakeEmail('gmail');
         $email->viewVars(array("url" => $url, "nombre" => $nombre . ' ' .$apellido));
         $email->template('olvido-clave');
         $email->emailFormat('html');
         $email->from('soporte@fletescr.com');
-        $email->to('maranai@gmail.com');
+        $email->to($emailTo);
         $email->subject('Cambio de clave fletescr.com');
         $email->send();
     }
@@ -76,7 +76,7 @@ class UsuariosController extends AppController {
                 if ($this->Invitacion->save($invitacion)){
                     $id = $this->Invitacion->getLastInsertID();
 
-                    $this->enviarEmailOlvido($usuario['nombre'], $usuario['apellido1'], $invitacion, $id);
+                    $this->enviarEmailOlvido($usuario['nombre'], $usuario['apellido1'], $usuario['email'], $invitacion, $id);
 
                     $this->Redirect(array('controller' => 'transport', 'action' => 'index?emailConf=1'));
                     exit();

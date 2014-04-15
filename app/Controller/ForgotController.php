@@ -16,12 +16,13 @@ class ForgotController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         // Allow users to register and logout.
-        $this->Auth->allow('forgot', 'resetPassword');
+        $this->Auth->allow('forgot', 'reset_password');
+
     }
 
-    public function resetPassword(){
+    public function reset_password(){
+        $this->layout = 'form';
 
-        $asdf = 234;
     }
 
     public function forgot(){
@@ -35,9 +36,8 @@ class ForgotController extends AppController {
 
 
                 if (!empty($invitacion['Invitacion']['redimida_en'])){
-                    $this->setMessage('error', 'El enlace utilizado ya no es válido.');
+                    $this->setMessage('error', 'El enlace utilizado ya no es válido para cambiar su clave.');
                     $this->Redirect(array('controller' => 'transport', 'action' => 'index'));
-
                     return;
                     //error, codigo ya redimido
 
@@ -46,7 +46,7 @@ class ForgotController extends AppController {
                 $invitacion['Invitacion']['redimida_en'] = date("Y-m-d H:i:s");
                 if ($this->Invitacion->save($invitacion, array("codigo", "redimida_en"))){
                     // clave cambiada exitosamente
-                    $this->Redirect(array('controller' => 'forgot', 'action' => 'reset-password'));
+                    $this->Redirect(array('controller' => 'forgot', 'action' => 'reset_password'));
                     return;
                 } else {
                     // error cambiando clave

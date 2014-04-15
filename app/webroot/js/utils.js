@@ -36,8 +36,15 @@ jQuery(function ($) {
 
     }
 
+    $(document).ready(function() {
 
+        // code to show notification messages
+        var messages = $("#app_messages").val();
+        var messagesArray = JSON.parse(messages);
+        for (var i in messagesArray) {
+            $.notify(messagesArray[i].type, messagesArray[i].message, 300);
 
-
+        }
+    });
 
 });

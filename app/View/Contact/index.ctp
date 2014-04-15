@@ -30,7 +30,7 @@ $this->start('mainPage');
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="fieldTitle">
                         Correo electr&oacute;nico (*)
                     </td>
                 </tr>
@@ -40,7 +40,7 @@ $this->start('mainPage');
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="fieldTitle">
                         Tel&eacute;fono
                     </td>
                 </tr>
@@ -50,7 +50,7 @@ $this->start('mainPage');
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="fieldTitle">
                         Su comentario (*)
                     </td>
                 </tr>
@@ -60,7 +60,7 @@ $this->start('mainPage');
                     </td>
                 </tr>
                 <tr>
-                    <td>Los campos marcados con (*) son obligatorios</td>
+                    <td class="fieldTitle">Los campos marcados con (*) son obligatorios</td>
                 </tr>
                 <tr class="paddingTop5">
                     <td>

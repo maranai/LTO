@@ -34,13 +34,21 @@ $title_for_layout = 'Algo main';
     echo $this->fetch('css');
     echo $this->fetch('script');
 
+    //    JS imports
     echo $this->Html->script('/js/jquery/jquery-2.0.3.min');
+    echo $this->Html->script('/js/utils');
     echo $this->Html->script('/js/jquery.pnotify.min');
+
 
     echo $this->fetch('customHeadContent');
     ?>
 </head>
 <body>
+<?php
+if (isset($messages) && $messages != null){
+    echo "<input id='app_messages' type='hidden' value='" . $messages . "'>";
+}
+?>
 <div id='top'>
     <div class="page">
         <div id="topImage"></div>

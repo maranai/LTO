@@ -11,14 +11,14 @@
 
 Hola,
 
-<p>Esta es una transcripción de un mensaje enviado a trav&eacute;s de fletescr.com.</p>
+<p>Esta es una transcripción de un mensaje enviado a través de fletescr.com.</p>
 
 
 <p><span class="bold">Nombre:</span>&nbsp;<?php echo $nombre; ?></p>
 
 <p><span class="bold">Email:</span>&nbsp;<?php echo $email; ?></p>
 
-<p><span class="bold">Tel&eacute;fono:</span>&nbsp;<?php echo $telefono; ?></p>
+<p><span class="bold">Teléfono:</span>&nbsp;<?php echo $telefono; ?></p>
 
 <p><span class="bold">Mensaje:</span></p>
 

@@ -33,14 +33,14 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-
-
-
     public function setMessage($type, $message){
-        $this->Session->write('messages', array($type => $message));
+        $messages = $this->Session->read('messages');
+        if ($messages == null){
+          $messages = array();
+        }
+        array_push($messages, array('type' => $type, 'message' => $message));
+        $this->Session->write('messages', $messages);
     }
-
-
 
     public $components = array(
         'Session',
@@ -59,6 +59,15 @@ class AppController extends Controller {
     public function beforeFilter() {
         $this->Auth->allow('index', 'view');
         $this->Auth->loginAction = array('controller'=>'home', 'action'=>'index');
+
+        if (!$this->request->is('post')){
+            $messages = $this->Session->read('messages');
+            if ($messages != null && sizeof($messages) > 0){
+                $this->set("messages", json_encode($messages));
+                $this->Session->write('messages', null);
+            }
+        }
+
     }
 
     // Check if they are logged in

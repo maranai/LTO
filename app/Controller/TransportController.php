@@ -8,6 +8,14 @@ class TransportController extends AppController {
 
     var $helpers = array('Form');
 
+    public function beforeFilter(){
+        parent::beforeFilter();
+
+        // Allow users to register and logout.
+        $this->Auth->allow('index');
+
+    }
+
     public function index() {
 
         if ($this->request->is('post')){

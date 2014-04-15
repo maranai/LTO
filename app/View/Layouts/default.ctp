@@ -48,6 +48,12 @@ $title_for_layout = '';
     ?>
 </head>
 <body>
+<?php
+if (isset($messages) && $messages != null){
+    echo "<input id='app_messages' type='hidden' value='" . $messages . "'>";
+}
+?>
+
 <div id='top'>
     <div class="page">
         <div id="topImage"></div>

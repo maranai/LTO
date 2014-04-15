@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @property Propietario $Propietario
  * @property SetCaract $SetCaract
  */
-class ContactForm extends AppModel {
+class PasswordReset extends AppModel {
 
     var $useTable = false;
 
@@ -20,28 +20,28 @@ class ContactForm extends AppModel {
      * @var array
      */
     public $validate = array(
-        'ctNombre' => array(
-            "notEmpty"  => array(
-                "rule"          => "notEmpty",
-                "message"       => "Ups! Debe incluir su nombre en este formulario.",
-                'required' => true
-            ),
-        ),
-        'ctComentario' => array(
-            "notEmpty"  => array(
-                "rule"          => "notEmpty",
-                "message"       => "Debe incluir su comentario o sugerencia.",
-            ),
-
-        ),
-        'ctEmail' => array(
+        'rstPassword' => array(
             'alphanumeric' => array(
-                'rule' => array('email'),
-                'message' => 'Indique un correo con formato válido, por ejemplo: jose.mora@fletescr.com',
-                'allowEmpty' => false,
+                'rule' => 'alphaNumeric',
+                'message' => 'La contraseña puede contener letras y números',
                 'required' => true
             ),
-        )
+            "notEmpty"  => array(
+                "rule"          => "notEmpty",
+                "message"       => "Debe digitar su nueva contraseña",
+            ),
+        ),
+        'rstPassword2' => array(
+            'alphanumeric' => array(
+                'rule' => 'alphaNumeric',
+                'message' => 'La contraseña puede contener letras y números',
+                'required' => true
+            ),
+            "notEmpty"  => array(
+                "rule"          => "notEmpty",
+                "message"       => "Debe reconfirmar su contraseña",
+            ),
+        ),
     );
 
 

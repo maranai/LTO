@@ -28,7 +28,7 @@
     <p>
         Atentamente, <br />
         El equipo de fletescr.com <br />
-        soporte@fletescr.com <br />
+        admin@fletescr.com <br />
         https://fletescr.com <br />
     </p>
 </body>

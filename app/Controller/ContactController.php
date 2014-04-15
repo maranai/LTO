@@ -19,10 +19,12 @@ class ContactController extends AppController {
 
     public $uses = array('ContactForm', 'Usuario');
 
-    public function beforeFilter() {
+    public function beforeFilter(){
         parent::beforeFilter();
+
         // Allow users to register and logout.
         $this->Auth->allow('index', 'msg_enviado');
+
     }
 
     public function msg_enviado(){
@@ -45,8 +47,8 @@ class ContactController extends AppController {
                     "telefono" => $this->data['ContactForm']['ctTelefono']));
                 $email->template('contactenos');
                 $email->emailFormat('html');
-                $email->from('soporte@fletescr.com');
-                $email->to('maranai@gmail.com');
+                $email->from('admin@fletescr.com');
+                $email->to('admin@fletescr.com');
                 $email->subject('Mensaje enviado a través de fletescr.com');
                 $email->send();
 

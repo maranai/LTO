@@ -180,8 +180,8 @@ class AuthComponent extends Component {
  * @var mixed
  */
 	public $loginAction = array(
-		'controller' => 'users',
-		'action' => 'login',
+		'controller' => 'home',
+		'action' => 'index',
 		'plugin' => null
 	);
 

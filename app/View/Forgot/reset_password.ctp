@@ -35,7 +35,7 @@ $this->start('mainPage');
                     </tr>
                     <tr>
                         <td>
-                            <?php echo $this->Form->input('rstPassword', array('label' => false, 'size' => '40')); ?>
+                            <?php echo $this->Form->input('rstPassword', array('type' => 'password', 'label' => false, 'size' => '40')); ?>
                         </td>
                     </tr>
                     <tr><td></td></tr>
@@ -46,9 +46,11 @@ $this->start('mainPage');
                     </tr>
                     <tr>
                         <td>
-                            <?php echo $this->Form->input('rstPassword2', array('label' => false, 'size' => '40')); ?>
+                            <?php echo $this->Form->input('rstPassword2', array('type' => 'password', 'label' => false, 'size' => '40')); ?>
                         </td>
                     </tr>
+
+                    <?php echo $this->Form->input('edit_usr_id', array('type' => 'hidden', 'value' => $edit_usr_id)) ?>
 
                     <tr>
                         <td class="fieldTitle">Los campos marcados con (*) son obligatorios</td>

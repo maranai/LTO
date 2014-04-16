@@ -23,6 +23,6 @@
 <p>
     Atentamente,
     El equipo de fletescr.com
-    soporte@fletescr.com
+    admin@fletescr.com
     https://fletescr.com
 </p>

@@ -57,16 +57,16 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
-        $this->Auth->loginAction = array('controller'=>'home', 'action'=>'index');
-
-        if (!$this->request->is('post')){
-            $messages = $this->Session->read('messages');
-            if ($messages != null && sizeof($messages) > 0){
-                $this->set("messages", json_encode($messages));
-                $this->Session->write('messages', null);
-            }
-        }
+//        $this->Auth->allow('index', 'view');
+//        $this->Auth->loginAction = array('controller'=>'home', 'action'=>'index');
+//
+//        if (!$this->request->is('post')){
+//            $messages = $this->Session->read('messages');
+//            if ($messages != null && sizeof($messages) > 0){
+//                $this->set("messages", json_encode($messages));
+//                $this->Session->write('messages', null);
+//            }
+//        }
 
     }
 
@@ -76,7 +76,7 @@ class AppController extends Controller {
         // Check if the session variable User exists, redirect to loginform if not
         if(!$this->Session->check('Usuario'))
         {
-            $this->redirect(array('controller' => 'transport', 'action' => 'transp_home'));
+            $this->redirect(array('controller' => 'home', 'action' => 'index'));
             exit();
         }
     }

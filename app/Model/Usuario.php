@@ -67,14 +67,22 @@ class Usuario extends AppModel {
 			),
 		),
 		'email' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'An email is required',
-				'allowEmpty' => false,
-				'required' => true,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Debe ingresar un correo electrónico'
+            ),
+            'validEmail' => array(
+                'rule' => array('email'),
+                'message' => 'Debe ingresar un correo con formato válido'
+            ),
+            'range' => array(
+                'rule' => array('between', 5, 90),
+                'message' => 'El correo debe tener entre 5 y 90 caracteres'
+            ),
+            'unique' => array(
+                'rule' => array('isUnique'),
+                'message' => 'El correo ingresado ya existe'
+            )
 		),
 		'email2' => array(
 			'alphanumeric' => array(

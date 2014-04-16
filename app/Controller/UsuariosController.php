@@ -46,7 +46,7 @@ class UsuariosController extends AppController {
         $email->viewVars(array("url" => $url, "nombre" => $nombre . ' ' .$apellido));
         $email->template('olvido-clave');
         $email->emailFormat('html');
-        $email->from('soporte@fletescr.com');
+        $email->from('admin@fletescr.com');
         $email->to($emailTo);
         $email->subject('Cambio de clave fletescr.com');
         $email->send();

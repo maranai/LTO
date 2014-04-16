@@ -35,8 +35,8 @@ $this->start('mainPage');?>
 <div id='olvido-clave-confirm' class="modalWindow">
     <h3>Solicitud de Clave</h3>
     <p>Hemos enviado instrucciones para cambiar su clave a su cuenta de correo.</p>
-    <p>Por favor localice en su correo un mensaje de soporte@fletescr.com y haga click en el link inclu&iacute;do para cambiar su clave.</p><br/>
-    <p>Nota: Si usted utiliza algún filtro de correos o alguna aplicaci&oacute;n anti-spam, debe asegurarse de que nuestro mensaje no sea bloqueado. Si usted no recibe el mensaje, por favor contáctenos a <a href="mailto:soporte@fletescr.com">soporte@fletescr.com</a> </p>
+    <p>Por favor localice en su correo un mensaje de admin@fletescr.com y haga click en el link inclu&iacute;do para cambiar su clave.</p><br/>
+    <p>Nota: Si usted utiliza algún filtro de correos o alguna aplicaci&oacute;n anti-spam, debe asegurarse de que nuestro mensaje no sea bloqueado. Si usted no recibe el mensaje, por favor contáctenos a <a href="mailto:admin@fletescr.com">admin@fletescr.com</a> </p>
 
     <div class="spacedTopBottom35">
         <input class="btnCancelar orangeButton" type="submit" value="Regresar">

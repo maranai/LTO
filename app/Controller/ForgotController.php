@@ -11,7 +11,9 @@ App::uses('AppController', 'Controller');
 
 class ForgotController extends AppController {
 
-    public $uses = array('Usuario', 'Invitacion');
+    public $uses = array('Usuario', 'Invitacion', 'PasswordReset');
+    public $helpers = array('Html', 'Form');
+    public $components = array('Session');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -22,6 +24,40 @@ class ForgotController extends AppController {
 
     public function reset_password(){
         $this->layout = 'form';
+
+        if ($this->request->is('post')){
+            $this->PasswordReset->set($this->data);
+            $this->set("edit_usr_id", $this->data['PasswordReset']['edit_usr_id']);
+            if (($this->PasswordReset->validates())){
+
+                $usuario = $this->Usuario->findById($this->data['PasswordReset']['edit_usr_id']);
+                if (empty($usuario) == false){
+
+                    $usuario['password'] = $this->data['PasswordReset']['rstPassword'];
+                    if ($this->Usuario->save($usuario, array("password"))){
+                        $this->setMessage('success', "Su contraseña fue cambiada exitosamente");
+                        $this->Redirect(array('controller' => 'transport', 'action' => 'index'));
+                        return;
+
+                    } else {
+                        $this->setMessage('error', "Sucedió un error inesperado al cambiar su contraseña.");
+                        $this->Redirect(array('controller' => 'transport', 'action' => 'index'));
+                        return;
+                    }
+
+                }
+            }
+
+        } else {
+            if ($this->Session->read('Invitacion.userId') != null){
+                $this->set("edit_usr_id", $this->Session->read('Invitacion.userId'));
+                $this->Session->delete('Invitacion.userId');
+            } else {
+                $this->setMessage('error', 'Operación inválida.');
+                $this->Redirect(array('controller' => 'home', 'action' => 'index'));
+                return;
+            }
+        }
 
     }
 
@@ -46,6 +82,7 @@ class ForgotController extends AppController {
                 $invitacion['Invitacion']['redimida_en'] = date("Y-m-d H:i:s");
                 if ($this->Invitacion->save($invitacion, array("codigo", "redimida_en"))){
                     // clave cambiada exitosamente
+                    $this->Session->write('Invitacion.userId', $invitacion['Invitacion']['usuario_id'] );
                     $this->Redirect(array('controller' => 'forgot', 'action' => 'reset_password'));
                     return;
                 } else {

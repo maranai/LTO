@@ -15,18 +15,18 @@ $this->start('pageDividerContent'); ?>
         <table class="pageDividerTable">
             <tr>
                 <td>
-                    <img src="../img/mainPage1.png"><br/>
+                    <img src="../img/mainpage1.png"><br/>
                     <span class="sectionTitle">Transportes</span><br/>
                     <span class="sectionText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</span>
                 </td>
                 <td>
-                    <img src="../img/mainPage1.png"><br/>
+                    <img src="../img/mainpage1.png"><br/>
                     <span class="sectionTitle">Servicio Carga</span><br/>
                     <span class="sectionText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</span>
                 </td>
 
                 <td>
-                    <img src="../img/mainPage1.png"><br/>
+                    <img src="../img/mainpage1.png"><br/>
                     <span class="sectionTitle">Mudanzas</span><br/>
                     <span class="sectionText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</span>
                 </td>

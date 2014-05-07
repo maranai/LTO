@@ -57,16 +57,11 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
-//        $this->Auth->allow('index', 'view');
-//        $this->Auth->loginAction = array('controller'=>'home', 'action'=>'index');
-//
-//        if (!$this->request->is('post')){
-//            $messages = $this->Session->read('messages');
-//            if ($messages != null && sizeof($messages) > 0){
-//                $this->set("messages", json_encode($messages));
-//                $this->Session->write('messages', null);
-//            }
-//        }
+
+        if (sizeof($this->Session->read('messages')) > 0){
+            $this->set("messages", $this->Session->read('messages'));
+            $this->Session->write('messages', array());
+        }
 
     }
 
@@ -87,6 +82,7 @@ class AppController extends Controller {
 
         if (sizeof($this->Session->read('messages')) > 0){
             $this->set("messages", $this->Session->read('messages'));
+            $this->Session->write('messages', array());
         }
 
         //controllers that don't need authentication

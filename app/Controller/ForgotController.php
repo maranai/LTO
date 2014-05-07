@@ -32,7 +32,6 @@ class ForgotController extends AppController {
 
                 $usuario = $this->Usuario->findById($this->data['PasswordReset']['edit_usr_id']);
                 if (empty($usuario) == false){
-
                     $usuario['password'] = $this->data['PasswordReset']['rstPassword'];
                     if ($this->Usuario->save($usuario, array("password"))){
                         $this->setMessage('success', "Su contraseña fue cambiada exitosamente");
@@ -80,7 +79,7 @@ class ForgotController extends AppController {
                 }
 
                 $invitacion['Invitacion']['redimida_en'] = date("Y-m-d H:i:s");
-                if ($this->Invitacion->save($invitacion, array("codigo", "redimida_en"))){
+                if ($this->Invitacion->save($invitacion, array("redimida_en"))){
                     // clave cambiada exitosamente
                     $this->Session->write('Invitacion.userId', $invitacion['Invitacion']['usuario_id'] );
                     $this->Redirect(array('controller' => 'forgot', 'action' => 'reset_password'));
@@ -91,6 +90,8 @@ class ForgotController extends AppController {
                     return;
                 }
             }
+        } else {
+
         }
 
 

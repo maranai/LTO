@@ -182,7 +182,7 @@ class UsuariosController extends AppController {
             if(($user = $this->Usuario->validateLogin($this->data)) != false)
             {
                 // Write some Session variables and redirect to our next page!
-                $this->Session->setFlash('Thank you for logging in!');
+                $this->setMessage('success', "Bienvenido a fletescr.com!");
                 $this->Session->write('Usuario', $user);
 
                 // Go to our first destination!
@@ -191,8 +191,8 @@ class UsuariosController extends AppController {
             }
             else
             {
-                $this->Session->setFlash('Incorrect username/password!', true);
-                $this->Redirect(array('action' => 'login_form'));
+                $this->setMessage('error', "El usuario o clave ingresados son incorrectos.");
+                $this->Redirect(array('controller' => 'transport', 'action' => 'index'));
                 exit();
             }
         }

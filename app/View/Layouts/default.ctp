@@ -50,6 +50,7 @@ $title_for_layout = '';
 <body>
 <?php
 if (isset($messages) && $messages != null){
+    $messages = json_encode($messages);
     echo "<input id='app_messages' type='hidden' value='" . $messages . "'>";
 }
 ?>

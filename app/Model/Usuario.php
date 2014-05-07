@@ -31,20 +31,19 @@ class Usuario extends AppModel {
 			),
 		),
 		'password' => array(
-			'alphanumeric' => array(
-                'required' => array(
-                    'rule' => array('notEmpty'),
-                    'message' => 'A password is required'
-                )
-			),
-			'maxlength' => array(
-				'rule' => array('maxlength'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+            'alphanumeric' => array(
+                'rule' => 'alphaNumeric',
+                'message' => 'La contraseña puede contener solamente letras y números',
+                'required' => true
+            ),
+            "notEmpty"  => array(
+                "rule"          => "notEmpty",
+                "message"       => "Debe digitar una contraseña",
+            ),
+            'lenght' => array(
+                'rule' => array('minLength', 8),
+                'message' => 'La contraseña debe tener un mínimo de 8 caracteres'
+            )
 		),
 		'nombre' => array(
 			'alphanumeric' => array(
@@ -95,24 +94,24 @@ class Usuario extends AppModel {
 			),
 		),
 		'telefono' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				'allowEmpty' => false,
-				'required' => true,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+//			'alphanumeric' => array(
+//				'rule' => array('alphanumeric'),
+//				//'message' => 'Your custom message here',
+//				'allowEmpty' => false,
+//				'required' => true,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
 		),
 		'telefono2' => array(
-			'phone' => array(
-				'rule' => array('phone'),
-				//'message' => 'Your custom message here',
-//				'allowEmpty' => true,
-				'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+//			'phone' => array(
+//				'rule' => array('phone'),
+//				//'message' => 'Your custom message here',
+////				'allowEmpty' => true,
+//				'required' => false,
+//				//'last' => false, // Stop validation after this rule
+//				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+//			),
 		),
 	);
 

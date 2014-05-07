@@ -5,9 +5,7 @@
  */
 
 $this->start('customHeadContent');
-echo $this->Html->script('/js/bjqs-1.3.min');
 echo $this->Html->script('/js/mainPage');
-echo $this->Html->css('/css/bjqs');
 $this->end();
 
 $this->start('pageDividerContent'); ?>
@@ -41,11 +39,11 @@ $this->start('pageDividerContent'); ?>
 $this->end();
 
 $this->start('subHeader'); ?>
-<div id='subHeader'>
-    <img src="/img/banner/banner2.png" title="Automatically generated caption"></li>
-    <div id="subHeaderLeftNav"><a href="" class="leftNav"><</a></div>
-    <div id="subHeaderRightNav"><a href="" class="rightNav"></a></div>
-</div>
+<!--<div id='subHeader'>-->
+<!--    <img src="/img/banner/banner2.png" title="Automatically generated caption"></li>-->
+<!--    <div id="subHeaderLeftNav"><a href="" class="leftNav"><</a></div>-->
+<!--    <div id="subHeaderRightNav"><a href="" class="rightNav"></a></div>-->
+<!--</div>-->
 <?php $this->end();
 
 $this->start('mainPage'); ?>
@@ -65,6 +63,31 @@ $this->start('mainPage'); ?>
                 Buscador de Cargas
             </div>
             <div id="rightSectionContent">
+
+
+<!--                --><?php //echo $this->form->create('Carga',array('action'=>'search'));?>
+<!--                <fieldset>-->
+                    <!--                    <legend>--><?php //__('Post Search');?><!--</legend>-->
+                    <?php
+//                    echo $this->form->input('Search.keywords');
+//                    echo $this->form->input('Search.id');
+//                    echo $this->form->input('Search.name',array('after'=>__('wildcard is *',true)));
+//                    echo $this->form->input('Search.body',array('after'=>__('wildcard is *',true)));
+//                    echo $this->form->input('Search.active',array(
+//                        'empty'=>__('Any',true),
+//                        'options'=>array(
+//                            0=>__('Inactive',true),
+//                            1=>__('Active',true),
+//                        ),
+//                    ));
+//                    echo $this->form->input('Search.created', array('after'=>'eg: >= 2 weeks ago'));
+//                    echo $this->form->input('Search.category_id');
+//                    echo $this->form->input('Search.tag');
+//                    echo $this->form->input('Search.tag_id');
+//                    echo $this->form->submit('Search');
+//                    ?>
+<!--                </fieldset>-->
+<!--                --><?php //echo $this->form->end();?>
 
                 <table style="color: white;">
                     <tr style="height: 30px;">

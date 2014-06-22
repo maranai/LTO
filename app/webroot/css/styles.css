@@ -201,6 +201,19 @@ a.topnav:hover, a.topnav:active {
     padding-top: 3px;
 }
 
+.subMenuDiv a:hover{
+    color:#FE7200;
+}
+
+.subMenuDiv a{
+    color:#ffffff;
+    text-decoration: none;
+}
+
+.subMenuDiv a:visited{
+    color:#ffffff;
+    text-decoration: none;
+}
 
 .subMenuDivider{
     border-left: 1px solid @white;

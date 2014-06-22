@@ -195,8 +195,7 @@ class UsuariosController extends AppController {
                     $userRoles[] = $rol['Rol']['id'];
                 }
                 $this->Auth->login($user);
-                $this->Session->write('Usuario', $user);
-                $this->Session->write('lto_roles', $userRoles);
+                $this->Session->write('roles', $userRoles);
 
                 // Go to our first destination!
                 $this->Redirect(array('controller' => 'transport', 'action' => 'index', 'success' => '1'));

@@ -74,6 +74,10 @@ if (isset($messages) && $messages != null){
     <div class="subMenuDiv">
         Bienvenido <?php echo $usuario['Usuario']['nombre'] . " " . $usuario['Usuario']['apellido1']; ?>
         &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php if (in_array('1', $this->Session->read('roles'))){ ?>
+        <a href="/admin">Admin</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php } ?>
         <span class="salir"><a href="/usuarios/logout">Salir</a></span>
     </div>
     <?php } ?>

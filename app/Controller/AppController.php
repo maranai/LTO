@@ -63,6 +63,11 @@ class AppController extends Controller {
             $this->Session->write('messages', array());
         }
 
+        $usr = $this->Session->read('Usuario');
+        if (empty($usr) == false){
+            $this->set("auth_user", true);
+        }
+
     }
 
     // Check if they are logged in

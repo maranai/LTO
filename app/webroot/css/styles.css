@@ -171,9 +171,41 @@ a.topnav:hover, a.topnav:active {
 #subHeader {
     background-color: #00376F;
     margin: 0;
-    height: 200px;
+    height: 20px;
     vertical-align: middle;
     text-align: center;
+}
+
+.salir{
+    background-image: url('../img/icons/ico_salir.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 25px;
+}
+
+.salir a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.salir a:visited{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+.subMenuDiv{
+    color: white;
+    margin-left: 70%;
+    height: 25px;
+    padding-top: 3px;
+}
+
+
+.subMenuDivider{
+    border-left: 1px solid @white;
+    margin-left: 10px;
+    padding-right: 10px;
 }
 
 #subHeaderRightNav a{
@@ -277,7 +309,7 @@ a.topnav:hover, a.topnav:active {
 #subHeaderDivider {
     background: linear-gradient(to bottom right, #02407D, #367889);
     margin: 0;
-    height: 7px;
+    min-height: 7px;
 }
 
 .belowTopnav {

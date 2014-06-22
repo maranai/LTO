@@ -39,11 +39,6 @@ $this->start('pageDividerContent'); ?>
 $this->end();
 
 $this->start('subHeader'); ?>
-<!--<div id='subHeader'>-->
-<!--    <img src="/img/banner/banner2.png" title="Automatically generated caption"></li>-->
-<!--    <div id="subHeaderLeftNav"><a href="" class="leftNav"><</a></div>-->
-<!--    <div id="subHeaderRightNav"><a href="" class="rightNav"></a></div>-->
-<!--</div>-->
 <?php $this->end();
 
 $this->start('mainPage'); ?>

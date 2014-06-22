@@ -67,10 +67,17 @@ if (isset($messages) && $messages != null){
     </div>
 </div>
 
-<!--subheader includes the banner for main page-->
-<?php echo $this->fetch('subHeader'); ?>
-
-<div id='subHeaderDivider'></div>
+<div id='subHeaderDivider'>
+    <?php if ($this->Session->check('Auth.User')){
+    $usuario = $this->Session->read('Auth.User');
+    ?>
+    <div class="subMenuDiv">
+        Bienvenido <?php echo $usuario['Usuario']['nombre'] . " " . $usuario['Usuario']['apellido1']; ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="salir"><a href="/usuarios/logout">Salir</a></span>
+    </div>
+    <?php } ?>
+</div>
 <div class='belowTopnav'>
     <div style="padding-top: 5px; padding-bottom: 5px;">
     <div class='page'>

@@ -19,7 +19,7 @@ class UsuariosController extends AppController {
  */
 	public $components = array('Paginator');
 
-    public $uses = array('Usuario', 'Invitacion', 'Email');
+    public $uses = array('Usuario', 'Invitacion', 'Email', 'UsuarioRol');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -173,6 +173,10 @@ class UsuariosController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+    public function logout() {
+        return $this->redirect($this->Auth->logout());
+    }
+
     function login() {
         // Check if they went here after submitting the form
 
@@ -183,7 +187,16 @@ class UsuariosController extends AppController {
             {
                 // Write some Session variables and redirect to our next page!
                 $this->setMessage('success', "Bienvenido a fletescr.com!");
+
+                $roles = $this->UsuarioRol->find('all', array('conditions' => array('UsuarioRol.usuario_id' => $user['Usuario']['id'])));
+                $userRoles = array();
+
+                foreach($roles as $rol){
+                    $userRoles[] = $rol['Rol']['id'];
+                }
+                $this->Auth->login($user);
                 $this->Session->write('Usuario', $user);
+                $this->Session->write('lto_roles', $userRoles);
 
                 // Go to our first destination!
                 $this->Redirect(array('controller' => 'transport', 'action' => 'index', 'success' => '1'));

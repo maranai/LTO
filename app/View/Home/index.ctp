@@ -11,7 +11,7 @@ $this->end();
 $this->start('pageDividerContent'); ?>
 <div class="pageDivider" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <div class="page">
-        <h2>¿Cómo funciona fletescr.com?</h2>
+<!--        <h2>¿Cómo funciona fletescr.com?</h2>-->
         <table class="pageDividerTable">
             <tr>
                 <td>

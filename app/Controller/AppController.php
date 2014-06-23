@@ -74,7 +74,7 @@ class AppController extends Controller {
     function authenticate()
     {
         // Check if the session variable User exists, redirect to loginform if not
-        if(!$this->Session->check('Usuario'))
+        if(!$this->Session->check('Auth.User'))
         {
             $this->redirect(array('controller' => 'home', 'action' => 'index'));
             exit();

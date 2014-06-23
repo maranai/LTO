@@ -1,0 +1,73 @@
+.mainAdminPage{
+    clear: both;
+    margin: 0px;
+    margin-top: 5px;
+    padding: 20px;
+    text-align: left;
+}
+
+
+
+
+
+
+/* -------------------- Admin tables styles -------------------- */
+
+.adminTable {
+    border:1px solid #d3d3d3;
+    width:100% !important;
+    border-spacing:0;
+    border-collapse:collapse;
+    font-size:13px;
+    margin-bottom:30px;
+}
+.adminTable thead {
+    background:#eceff4;
+    border-bottom:1px solid #d9d9d9;
+    color:#696969;
+    font-weight:bold;
+}
+.adminTable thead { background:#dee5ee; }
+
+.adminTable tr.top_legend {
+    background:#eceff4;
+    border-bottom:1px solid #d9d9d9;
+    border:1px solid #d3d3d3;
+    color:#696969;
+    font-weight:bold;
+    cursor:pointer;
+}
+.adminTable tr.top_legend:hover { background:#eceff4; }
+.adminTable tr:nth-child(even) { background:#f7f7f7; }
+.adminTable tr:last-child { border-bottom:none; }
+.adminTable tr.top_legend th { padding:3px 10px; }
+.adminTable tr td, .adminTable tr th {
+    padding:5px;
+    border-bottom:1px solid #e0e0e0;
+    border-right:1px solid #e0e0e0;
+    transition:0.2s;
+    -webkit-transition:0.2s;
+}
+
+
+.adminTable tr:hover {
+    background:#fffcf0;
+    transition:0.2s;
+    -webkit-transition:0.2s;
+}
+
+fieldSet{
+    border: none;
+}
+
+label{
+    padding-right: 10px;
+}
+
+.input{
+    padding: 10px;
+}
+
+legend{
+    display: none;
+}

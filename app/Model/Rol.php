@@ -55,7 +55,7 @@ class Rol extends AppModel {
 			'joinTable' => 'usuario_rol',
 			'foreignKey' => 'rol_id',
 			'associationForeignKey' => 'usuario_id',
-			'unique' => 'keepExisting',
+			'unique' => 'true',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',

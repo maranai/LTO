@@ -143,7 +143,7 @@ class Usuario extends AppModel {
 			'joinTable' => 'usuario_rol',
 			'foreignKey' => 'usuario_id',
 			'associationForeignKey' => 'rol_id',
-			'unique' => 'keepExisting',
+			'unique' => 'true',
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',

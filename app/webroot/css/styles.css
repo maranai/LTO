@@ -53,6 +53,15 @@ textarea{
     color: #00376F !important;
 }
 
+.introduction{
+    color: #707070;
+    font-size: 22px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align: left;
+    font-kerning: normal;
+    line-height: 34px;
+}
+
 /* Mensajes de error */
 
 .error-message{

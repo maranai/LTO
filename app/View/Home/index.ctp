@@ -9,7 +9,7 @@ echo $this->Html->script('/js/mainPage');
 $this->end();
 
 $this->start('pageDividerContent'); ?>
-<div class="pageDivider">
+<div class="pageDivider" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <div class="page">
         <h2>¿Cómo funciona fletescr.com?</h2>
         <table class="pageDividerTable">
@@ -26,8 +26,8 @@ $this->start('pageDividerContent'); ?>
                 </td>
 
                 <td>
-                    <img src="../img/mainpage1.png"><br/>
-                    <span class="sectionTitle">Mudanzas</span><br/>
+                    <img src="../img/directorio.png"><br/>
+                    <span class="sectionTitle">Directorio de Transportistas</span><br/>
                     <span class="sectionText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</span>
                 </td>
 
@@ -44,12 +44,16 @@ $this->start('subHeader'); ?>
 $this->start('mainPage'); ?>
 <div class="twoColumns">
     <div class="leftColumn">
-        <h2 class="subSection">¿Qui&eacute;nes somos?</h2>
-        <h4 class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h4>
-
-        <p class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-
-        <p class="subSection">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        <p class="introduction">
+        Si eres transportista o necesitas transporte de carga,
+        <span class="bold">fletescr.com</span> es tu plataforma en línea
+        </br> para que de forma sencilla
+        encuentres las mejores opciones del mercado.
+        </p>
+        <p class="introduction">
+        Asegúrate de negociar con las personas adecuadas, </br>
+        optimiza tu tiempo y dinero. Es fácil!
+        </p>
     </div>
 
     <div class="rightColumn">

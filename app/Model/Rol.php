@@ -42,27 +42,4 @@ class Rol extends AppModel {
 		),
 	);
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * hasAndBelongsToMany associations
- *
- * @var array
- */
-	public $hasAndBelongsToMany = array(
-		'Usuario' => array(
-			'className' => 'Usuario',
-			'joinTable' => 'usuario_rol',
-			'foreignKey' => 'rol_id',
-			'associationForeignKey' => 'usuario_id',
-			'unique' => 'true',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
-	);
-
 }

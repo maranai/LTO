@@ -19,7 +19,7 @@ class UsuariosController extends AppController {
  */
 	public $components = array('Paginator');
 
-    public $uses = array('Usuario', 'Invitacion', 'Email', 'UsuarioRol');
+    public $uses = array('Usuario', 'Invitacion', 'Email');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -188,11 +188,11 @@ class UsuariosController extends AppController {
                 // Write some Session variables and redirect to our next page!
                 $this->setMessage('success', "Bienvenido a fletescr.com!");
 
-                $roles = $this->UsuarioRol->find('all', array('conditions' => array('UsuarioRol.usuario_id' => $user['Usuario']['id'])));
+                $roles = $user['Rol'];
                 $userRoles = array();
 
                 foreach($roles as $rol){
-                    $userRoles[] = $rol['Rol']['id'];
+                    $userRoles[] = $rol['id'];
                 }
                 $this->Auth->login($user);
                 $this->Session->write('roles', $userRoles);

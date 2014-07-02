@@ -137,21 +137,17 @@ class Usuario extends AppModel {
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
-		'Rol' => array(
-			'className' => 'Rol',
-			'joinTable' => 'usuario_rol',
-			'foreignKey' => 'usuario_id',
-			'associationForeignKey' => 'rol_id',
-			'unique' => 'true',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
-	);
+
+    public $hasAndBelongsToMany = array(
+        'Rol' =>
+        array(
+            'className' => 'Rol',
+            'joinTable' => 'rol_usuario',
+            'foreignKey' => 'usuario_id',
+            'associationForeignKey' => 'rol_id',
+            'unique' => 'keepExisting'
+        )
+    );
 
     function validateLogin($data)
     {
@@ -162,9 +158,9 @@ class Usuario extends AppModel {
         // "SELECT id, username FROM users WHERE username = 'xxx' AND password = 'yyy'"
 //        $user = $this->find(array('email' => $data['email'], 'password' => $data['password']), array('id', 'email'));
 
-        $user = $this->find('first', array('fields' => array('Usuario.id', 'Usuario.email', 'Usuario.nombre', 'Usuario.apellido1'),
+        $user = $this->find('first', array(
             'conditions' => array('Usuario.email' => $data['lgnEmail'], 'Usuario.password' => $data['lgnPassword'],),
-            'recursive' => 0));
+            'recursive' => 1));
 
 
         if( empty($user) == false )

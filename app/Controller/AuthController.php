@@ -30,7 +30,6 @@ class AuthController extends AppController {
             {
                 // Write some Session variables and redirect to our next page!
                 $this->Session->setFlash('Thank you for logging in!');
-                $this->Session->write('User', $user);
 
                 // Go to our first destination!
                 $this->Redirect(array('controller' => 'Controller_name', 'action' => 'Action_name'));

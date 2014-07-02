@@ -12,7 +12,7 @@ App::uses('AppController', 'Controller');
 class AdminController extends AppController
 {
 
-    public $uses = array('Usuario', 'UsuarioRol', 'Rol');
+    public $uses = array('Usuario', 'Rol', 'RolesUsuario');
     public $helpers = array('Html', 'Form');
     public $components = array('Session');
 
@@ -20,7 +20,7 @@ class AdminController extends AppController
     {
         parent::beforeFilter();
         // Allow users to register and logout.
-        $this->Auth->allow('index', 'usuarios', 'fletes', 'cargas', 'addUsuario');
+        $this->Auth->allow('index', 'usuarios', 'fletes', 'cargas', 'addUsuario', 'deleteUsuario');
 
     }
 
@@ -50,42 +50,43 @@ class AdminController extends AppController
 
     }
 
+    public function deleteUsuario($id = null) {
+    $this->Usuario->id = $id;
+    if (!$this->Usuario->exists()) {
+        throw new NotFoundException(__('Invalid usuario'));
+    }
+
+    if ($this->Usuario->delete()) {
+        $this->setMessage('success', "El usuario fue borrado exitosamente.");
+//        $this->Session->setFlash(__('The usuario has been deleted.'));
+    } else {
+        $this->setMessage('error', "El usuario no pudo ser borrado.");
+//        $this->Session->setFlash(__('The usuario could not be deleted. Please, try again.'));
+    }
+        return $this->redirect(array('action' => 'usuarios'));
+}
+
     public function addUsuario()
     {
 
         if ($this->request->is('post')) {
 
-            $this->Usuario->create();
-            if ($this->Usuario->save($this->request->data)) {
-                $roles = $this->request->data['Usuario']['Rol']['id'];
-
-                $roles = $this->Rol->find('all', array(
-                'conditions' => array( "Rol.id" => $roles)
-                ));
-
-                $this->Usuario->UsuarioRol = $roles;
-                $this->Usuario->save();
-
-
-
-
-//                $this->set('usuarios', $usuarios);
-
-//                for ($i = 0; $i < sizeof($roles); $i++) {
-//                    $usuario_rol = $this->UsuarioRol->create();
-//                    $usuario_rol['usuario_id'] = $this->Usuario->id;
-//                    $usuario_rol['rol_id'] = $roles[$i];
-//                    $this->UsuarioRol->save($usuario_rol);
-//                }
-                $this->Session->setFlash(__('The usuario has been saved.'));
-                return $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+            $userRoles = array();
+            for ($i = 0; $i < sizeof($this->request->data['Rol']['Rol']); $i++) {
+                $userRoles[$i]['rol_id'] = $this->request->data['Rol']['Rol'][$i];
             }
-        } else {
 
+            $this->request->data['RolesUsuario'] = $userRoles;
+            $this->Usuario->create();
+            if ($this->Usuario->save($this->request->data)){
+//                $this->Session->setFlash(__('The user has been saved.'));
+                $this->setMessage('success', "El usuario fue creado exitosamente.");
+                return $this->redirect(array('action' => 'usuarios'));
+            } else {
+                $this->setMessage('error', "El usuario no pudo ser creado.");
+//                $this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+            }
         }
-
     }
 
 

@@ -1,26 +1,20 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * UsuarioRol Model
+ * RolesUsuario Model
  *
  * @property Usuario $Usuario
  * @property Rol $Rol
  */
-class UsuarioRol extends AppModel {
+class RolesUsuario extends AppModel {
 
 /**
  * Use table
  *
  * @var mixed False or table name
  */
-	public $useTable = 'usuario_rol';
+	public $useTable = 'rol_usuario';
 
-/**
- * Primary key field
- *
- * @var string
- */
-	public $primaryKey = 'usuario_id';
 
 /**
  * Validation rules
@@ -68,17 +62,11 @@ class UsuarioRol extends AppModel {
 	public $belongsTo = array(
 		'Usuario' => array(
 			'className' => 'Usuario',
-			'foreignKey' => 'usuario_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'usuario_id'
 		),
 		'Rol' => array(
 			'className' => 'Rol',
-			'foreignKey' => 'rol_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'rol_id'
 		)
 	);
 }

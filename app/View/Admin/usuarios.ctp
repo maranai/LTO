@@ -30,7 +30,7 @@
 
     </td>
     <td>
-        <a href="/admin/deleteUser/<?php echo $usuario['Usuario']['id']; ?>">Eliminar</a>
+        <a href="/admin/deleteUsuario/<?php echo $usuario['Usuario']['id']; ?>">Eliminar</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="/admin/editUser/<?php echo $usuario['Usuario']['id']; ?>">Editar</a>
     </td>

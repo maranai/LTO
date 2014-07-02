@@ -18,8 +18,8 @@
     echo $this->Form->input('Usuario.telefono', array('type'=>'input', 'label' => false));
     echo $this->Form->input('Usuario.telefono2', array('type'=>'input', 'label' => false));
 
-    $list = array("1" => "Transportista", "2"=> "Administrador");
-    echo $this->Form->select('Usuario.Rol.id', $list, array(
+    $list = array("2" => "Transportista", "1"=> "Administrador");
+    echo $this->Form->select('Rol', $list, array(
             'multiple' => 'multiple',
             'type' => 'select',
         )

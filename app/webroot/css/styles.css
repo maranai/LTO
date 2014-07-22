@@ -205,9 +205,14 @@ a.topnav:hover, a.topnav:active {
 
 .subMenuDiv{
     color: white;
-    margin-left: 70%;
     height: 25px;
     padding-top: 3px;
+}
+
+.subMenuDivContent{
+    float: right;
+    position: relative;
+    margin-right: 90px;
 }
 
 .subMenuDiv a:hover{

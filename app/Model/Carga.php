@@ -192,46 +192,47 @@ class Carga extends AppModel {
  */
 	public $belongsTo = array(
 		'DistritoOrigen' => array(
-			'className' => 'DistritoOrigen',
+			'className' => 'Distrito',
 			'foreignKey' => 'distrito_origen_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'CantonOrigen' => array(
-			'className' => 'CantonOrigen',
+			'className' => 'Canton',
 			'foreignKey' => 'canton_origen_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'DistritoDestino' => array(
-			'className' => 'DistritoDestino',
+			'className' => 'Distrito',
 			'foreignKey' => 'distrito_destino_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'CantonDestino' => array(
-			'className' => 'CantonDestino',
+			'className' => 'Canton',
 			'foreignKey' => 'canton_destino_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'Propietario' => array(
-			'className' => 'Propietario',
+		'Usuario' => array(
+			'className' => 'Usuario',
 			'foreignKey' => 'propietario_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
-		'SetCaract' => array(
-			'className' => 'SetCaract',
-			'foreignKey' => 'set_caract_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
+        'Tipo' => array(
+            'className' => 'Tipo',
+            'foreignKey' => 'tipo_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        )
+
 	);
 }

@@ -12,7 +12,7 @@ App::uses('AppController', 'Controller');
 class AdminController extends AppController
 {
 
-    public $uses = array('Usuario', 'Rol', 'RolesUsuario');
+    public $uses = array('Usuario', 'Rol', 'RolesUsuario', 'Carga');
     public $helpers = array('Html', 'Form');
     public $components = array('Session');
 
@@ -45,9 +45,27 @@ class AdminController extends AppController
 
     }
 
+    public function deleteCarga($id = null){
+        $this->Carga->id = $id;
+
+        if (!$this->Carga->exists()) {
+            $this->setMessage('error', "La carga no existe. Por favor intente de nuevo.");
+        } else {
+            if ($this->Carga->id) {
+                $this->Carga->saveField('eliminada', 1);
+            }
+            $this->setMessage('success', "La carga fue borrada exitosamente.");
+        }
+        return $this->redirect(array('action' => 'cargas'));
+    }
+
     public function cargas()
     {
-
+        if (!$this->request->is('post')) {
+            $cargas = $this->Carga->find('all',
+                array('conditions' => array('Carga.eliminada' => 0) ));
+            $this->set('cargas', $cargas);
+        }
     }
 
     public function deleteUsuario($id = null) {

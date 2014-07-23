@@ -26,7 +26,11 @@ echo $this->Html->css('admin-styles');
         <a href="/admin/cargas">Cargas</a>
         <ul>
             <li>
-                <a href="">Crear</a>
+                <a href="/admin/addCarga">Crear</a>
+            </li>
+
+            <li>
+                <a href="/admin/cargasEliminadas">Cargas eliminadas</a>
             </li>
         </ul>
     </li>

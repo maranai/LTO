@@ -5,9 +5,18 @@ App::uses('AppModel', 'Model');
  *
  * @property Pais $Pais
  */
-class Provincium extends AppModel {
+class Provincia extends AppModel {
+
 
 /**
+ * Use table
+ *
+ * @var mixed False or table name
+ */
+public $useTable = 'provincia';
+
+
+    /**
  * Display field
  *
  * @var string

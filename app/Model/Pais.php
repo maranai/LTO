@@ -6,7 +6,16 @@ App::uses('AppModel', 'Model');
  */
 class Pais extends AppModel {
 
+
 /**
+ * Use table
+ *
+ * @var mixed False or table name
+ */
+public $useTable = 'pais';
+
+
+    /**
  * Display field
  *
  * @var string

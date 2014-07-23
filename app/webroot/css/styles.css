@@ -99,6 +99,37 @@ textarea{
     z-index: 900;
 }
 
+
+/*general table styles*/
+table{
+    width: 100%;
+}
+
+table tr{
+    text-align: left;
+    vertical-align: top;
+}
+
+table tr td{
+    text-align: left;
+    vertical-align: top;
+}
+/*end of general table styles*/
+
+
+/*general form styles*/
+div.input{
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+
+/*end of general form styles*/
+
 /*Styles to keep*/
 
 html {

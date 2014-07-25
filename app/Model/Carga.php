@@ -19,6 +19,9 @@ class Carga extends AppModel {
  */
 	public $useTable = 'carga';
 
+    const TIPO_OTRO = 11;
+
+
 /**
  * Validation rules
  *
@@ -135,16 +138,6 @@ class Carga extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'dir_origen' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'propietario_id' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -156,16 +149,6 @@ class Carga extends AppModel {
 			),
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'dir_destino' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -201,6 +184,20 @@ class Carga extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
+        'ProvinciaOrigen' => array(
+            'className' => 'Provincia',
+            'foreignKey' => 'provincia_origen_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
+        'ProvinciaDestino' => array(
+            'className' => 'Provincia',
+            'foreignKey' => 'provincia_destino_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
 		'DistritoOrigen' => array(
 			'className' => 'Distrito',
 			'foreignKey' => 'distrito_origen_id',

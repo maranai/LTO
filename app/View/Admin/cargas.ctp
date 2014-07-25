@@ -10,9 +10,11 @@
         <tr>
             <th>ID</th>
             <th>Descripcion</th>
+            <th>Provincia Origen</th>
             <th>Canton Origen</th>
             <th>Distrito Origen</th>
             <th>Dirección Origen</th>
+            <th>Provincia Destino</th>
             <th>Canton Destino</th>
             <th>Distrito Destino</th>
             <th>Dirección Destino</th>
@@ -30,9 +32,11 @@
 
             <td><?php echo $carga['Carga']['id']; ?></td>
             <td><a href="/admin/cargaDetails"><?php echo $carga['Carga']['descripcion']; ?></a></td>
+            <td><?php echo $carga['ProvinciaOrigen']['nombre']; ?></td>
             <td><?php echo $carga['CantonOrigen']['nombre']; ?></td>
             <td><?php echo $carga['DistritoOrigen']['nombre']; ?></td>
             <td><?php echo $carga['Carga']['dir_origen']; ?></td>
+            <td><?php echo $carga['ProvinciaDestino']['nombre']; ?></td>
             <td><?php echo $carga['CantonDestino']['nombre']; ?></td>
             <td><?php echo $carga['DistritoDestino']['nombre']; ?></td>
             <td><?php echo $carga['Carga']['dir_destino']; ?></td>
@@ -42,7 +46,6 @@
 
             <td>
                 <a href="/admin/deleteCarga/<?php echo $carga['Carga']['id']; ?>">Eliminar</a>
-                &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="/admin/editCarga/<?php echo $carga['Carga']['id']; ?>">Editar</a>
             </td>
         </tr>

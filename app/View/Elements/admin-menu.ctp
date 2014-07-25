@@ -28,9 +28,11 @@ echo $this->Html->css('admin-styles');
             <li>
                 <a href="/admin/addCarga">Crear</a>
             </li>
-
             <li>
                 <a href="/admin/cargasEliminadas">Cargas eliminadas</a>
+            </li>
+            <li>
+                <a href="/admin/admTiposCarga">Administrar tipos de carga</a>
             </li>
         </ul>
     </li>
@@ -42,4 +44,5 @@ echo $this->Html->css('admin-styles');
             </li>
         </ul>
     </li>
+
 </ul>

@@ -2,27 +2,53 @@
 
     $(document).ready(function() {
 
-        $("#ProvinciaId").on("change", function(){
+        $("#CargaProvinciaOrigenId").on("change", function(){
             $.ajax({
-                url: '/admin/ajax_cantones/' + $("#ProvinciaId").val(),
+                url: '/admin/ajax_cantones/' + $("#CargaProvinciaOrigenId").val(),
                 cache: false,
                 type: 'POST',
                 dataType: 'HTML',
                 success: function (data) {
-                    $("#CantonId").html(data);
+                    $("#CargaCantonOrigenId").html(data);
                 }
             });
 
         });
 
-        $("#CantonId").on("change", function(){
+        $("#CargaCantonOrigenId").on("change", function(){
             $.ajax({
-                url: '/admin/ajax_distritos/' + $("#CantonId").val(),
+                url: '/admin/ajax_distritos/' + $("#CargaCantonOrigenId").val(),
                 cache: false,
                 type: 'POST',
                 dataType: 'HTML',
                 success: function (data) {
-                    $("#DistritoId").html(data);
+                    $("#CargaDistritoOrigenId").html(data);
+                }
+            });
+
+        });
+
+        $("#CargaProvinciaDestinoId").on("change", function(){
+            $.ajax({
+                url: '/admin/ajax_cantones/' + $("#CargaProvinciaDestinoId").val(),
+                cache: false,
+                type: 'POST',
+                dataType: 'HTML',
+                success: function (data) {
+                    $("#CargaCantonDestinoId").html(data);
+                }
+            });
+
+        });
+
+        $("#CargaCantonDestinoId").on("change", function(){
+            $.ajax({
+                url: '/admin/ajax_distritos/' + $("#CargaCantonDestinoId").val(),
+                cache: false,
+                type: 'POST',
+                dataType: 'HTML',
+                success: function (data) {
+                    $("#CargaDistritoDestinoId").html(data);
                 }
             });
 

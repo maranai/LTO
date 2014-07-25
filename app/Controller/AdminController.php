@@ -12,7 +12,7 @@ App::uses('AppController', 'Controller');
 class AdminController extends AppController
 {
 
-    public $uses = array('Usuario', 'Rol', 'RolesUsuario', 'Carga', 'Provincia', 'Canton', 'Distrito');
+    public $uses = array('Usuario', 'Rol', 'RolesUsuario', 'Carga', 'Provincia', 'Canton', 'Distrito', 'Tipo');
     public $helpers = array('Html', 'Form', 'Js' => array('Jquery'));
     public $components = array('Session', 'RequestHandler');
 
@@ -22,7 +22,7 @@ class AdminController extends AppController
         // Allow users to register and logout.
         $this->Auth->allow('index',
             'usuarios', 'addUsuario', 'deleteUsuario',
-            'cargas', 'cargasEliminadas', 'deleteCarga', 'restoreCarga', 'addCarga');
+            'cargas', 'cargasEliminadas', 'deleteCarga', 'restoreCarga', 'addCarga', 'addTipoCarga');
 
     }
 
@@ -32,6 +32,16 @@ class AdminController extends AppController
 
     function cantones() {
         $this->set('cantones', $this->Canton->find('list'));
+    }
+
+
+    function admTiposCarga(){
+        if (!$this->request->is('post')) {
+            $tiposCarga = $this->Tipo->find('all', array(
+                'conditions' => array('Tipo.mostrar' => 1)
+            ));
+            $this->set('tiposCarga', $tiposCarga);
+        }
     }
 
     function ajax_cantones($provincia = null) {
@@ -96,6 +106,18 @@ class AdminController extends AppController
         }
     }
 
+    public function addTipoCarga() {
+        if ($this->request->is('post')) {
+            $this->Tipo->create();
+            if ($this->Tipo->save($this->request->data)) {
+                $this->setMessage('success', 'El tipo de carga fue creado exitosamente');
+            } else {
+                $this->setMessage('error', 'El tipo de carga no pudo ser creado');
+            }
+            return $this->redirect(array('action' => 'admTiposCarga'));
+        }
+    }
+
     public function deleteCarga($id = null){
         $this->Carga->id = $id;
 
@@ -156,7 +178,36 @@ class AdminController extends AppController
         ));
         $this->set(compact('provincias'));
 
+        $tiposCarga = $this->Tipo->find('list', array(
+            'conditions' => array('Tipo.mostrar' => 1),
+            'fields'     => array('Tipo.id', 'Tipo.tipo')
+        ));
+        $this->set(compact('tiposCarga'));
+
         if ($this->request->is('post')) {
+
+            $data = $this->request->data;
+
+            $this->Carga->create();
+
+            if ($data['Carga']['tipo_id'] == 11){
+                $tipo = array();
+                $tipo['Tipo']['tipo'] = $data['Tipo']['tipo'];
+                $this->Tipo->create();
+                $id = $this->Tipo->save($tipo);
+                $data['Carga']['tipo_id'] = $id['Tipo']['id'];
+            }
+
+
+            if ($this->Carga->save($data['Carga'])){
+                $this->setMessage('success', "La carga fue creada exitosamente.");
+                return $this->redirect(array('action' => 'cargas'));
+            } else {
+                $this->setMessage('error', "La carga no pudo ser creada.");
+                return $this->redirect(array('action' => 'addCarga'));
+            }
+
+
 
         }
     }

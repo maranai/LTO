@@ -17,7 +17,9 @@ class UsuariosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'Paginator', 'RequestHandler');
+
+    public $helpers = array('Html', 'Form', 'Ajax', 'Js' => array('Jquery'));
 
     public $uses = array('Usuario', 'Invitacion', 'Email');
 
@@ -38,6 +40,28 @@ class UsuariosController extends AppController {
 		$this->Usuario->recursive = 0;
 		$this->set('usuario', $this->Paginator->paginate());
 	}
+
+
+
+    function ajax_search(){
+        if ( $this->RequestHandler->isAjax() ) {
+            Configure::write ('debug', 0 );
+            $this->autoRender=false;
+            $users=$this->Usuario->find('all',array('conditions'=>array('Usuario.nombre LIKE'=>'%'.$_GET['term'].'%')));
+            $i=0;
+            foreach($users as $user){
+                $response[$i]['id']= $user['Usuario']['id'];
+                $response[$i]['value']= $user['Usuario']['id'] . " / " . $user['Usuario']['nombre'] . ' ' . $user['Usuario']['apellido1'];
+                $i++;
+            }
+            echo json_encode($response);
+        } else {
+            if (!empty($this->data)) {
+//            $this->set('users' ,$this->paginate(array(‘User.username LIKE’=>’%’.$this->data['User']['username'].’%’)));
+            }
+        }
+    }
+
 
 
     private function enviarEmailOlvido($nombre, $apellido, $emailTo, $invitacion, $id){

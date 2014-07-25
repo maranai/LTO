@@ -40,7 +40,10 @@ echo $this->Html->css('admin-styles');
         <a href="/admin/fletes">Fletes</a>
         <ul>
             <li>
-                <a href="">Crear</a>
+                <a href="/admin/addFlete">Crear</a>
+            </li>
+            <li>
+                <a href="/admin/fletesEliminados">Fletes eliminados</a>
             </li>
         </ul>
     </li>

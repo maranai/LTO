@@ -3,8 +3,8 @@
 
 <div class="mainAdminPage">
 
-    <h2>Fletes activos</h2>
-    <p>Fletes que no han sido eliminados y cuya fecha de validez no ha pasado.</p>
+    <h2>Fletes Eliminados</h2>
+    <p>Fletes que fueron borrados.</p>
     <table class="adminTable">
         <thead>
         <tr>
@@ -16,7 +16,7 @@
             <th>Provincia Destino</th>
             <th>Canton Destino</th>
             <th>Distrito Destino</th>
-            <th>Propietario</th>            
+            <th>Propietario</th>
             <th>Capacidad</th>
             <th></th>
 
@@ -26,19 +26,20 @@
         <?php foreach($fletes as $flete){ ?>
         <tr>
 
+
             <td><?php echo $flete['Flete']['id']; ?></td>
             <td><a href="/admin/fleteDetails"><?php echo $flete['Flete']['descripcion']; ?></a></td>
             <td><?php echo $flete['ProvinciaOrigen']['nombre']; ?></td>
             <td><?php echo $flete['CantonOrigen']['nombre']; ?></td>
             <td><?php echo $flete['DistritoOrigen']['nombre']; ?></td>
-            <td><?php echo $flete['ProvinciaDestino']['nombre']; ?></td>
             <td><?php echo $flete['CantonDestino']['nombre']; ?></td>
             <td><?php echo $flete['DistritoDestino']['nombre']; ?></td>
+            <td><?php echo $flete['ProvinciaDestino']['nombre']; ?></td>
             <td><?php echo $flete['Usuario']['nombre'] . ' ' . $flete['Usuario']['apellido1']; ?></td>
             <td><?php echo $flete['Flete']['capacidad'] . $flete['Flete']['unidad_peso']; ?></td>
 
             <td>
-                <a href="/admin/deleteFlete/<?php echo $flete['Flete']['id']; ?>">Eliminar</a>
+                <a href="/admin/restoreFlete/<?php echo $flete['Flete']['id']; ?>">Restaurar</a>
                 <a href="/admin/editFlete/<?php echo $flete['Flete']['id']; ?>">Editar</a>
             </td>
         </tr>

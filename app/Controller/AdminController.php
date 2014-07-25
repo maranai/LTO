@@ -12,7 +12,7 @@ App::uses('AppController', 'Controller');
 class AdminController extends AppController
 {
 
-    public $uses = array('Usuario', 'Rol', 'RolesUsuario', 'Carga', 'Provincia', 'Canton', 'Distrito', 'Tipo');
+    public $uses = array('Usuario', 'Rol', 'RolesUsuario', 'Carga', 'Provincia', 'Canton', 'Distrito', 'Tipo', 'Flete');
     public $helpers = array('Html', 'Form', 'Js' => array('Jquery'));
     public $components = array('Session', 'RequestHandler');
 
@@ -95,6 +95,11 @@ class AdminController extends AppController
 
     public function fletes()
     {
+        if (!$this->request->is('post')) {
+            $fletes = $this->Flete->find('all',
+                array('conditions' => array('Flete.eliminado' => 0) ));
+            $this->set('fletes', $fletes);
+        }
 
     }
 
@@ -103,6 +108,14 @@ class AdminController extends AppController
             $cargas = $this->Carga->find('all',
                 array('conditions' => array('Carga.eliminada' => 1) ));
             $this->set('cargas', $cargas);
+        }
+    }
+
+    public function fletesEliminados(){
+        if (!$this->request->is('post')) {
+            $fletes = $this->Flete->find('all',
+                array('conditions' => array('Flete.eliminado' => 1) ));
+            $this->set('fletes', $fletes);
         }
     }
 
@@ -132,6 +145,20 @@ class AdminController extends AppController
         return $this->redirect(array('action' => 'cargas'));
     }
 
+    public function deleteFlete($id = null){
+        $this->Flete->id = $id;
+
+        if (!$this->Flete->exists()) {
+            $this->setMessage('error', "El flete no existe. Por favor intente de nuevo.");
+        } else {
+            if ($this->Flete->id) {
+                $this->Flete->saveField('eliminado', 1);
+            }
+            $this->setMessage('success', "El flete fue borrado exitosamente.");
+        }
+        return $this->redirect(array('action' => 'fletes'));
+    }
+
     public function restoreCarga($id = null){
         $this->Carga->id = $id;
 
@@ -144,6 +171,20 @@ class AdminController extends AppController
             $this->setMessage('success', "La carga fue restaurada exitosamente.");
         }
         return $this->redirect(array('action' => 'cargasEliminadas'));
+    }
+
+    public function restoreFlete($id = null){
+        $this->Flete->id = $id;
+
+        if (!$this->Flete->exists()) {
+            $this->setMessage('error', "El flete no existe. Por favor intente de nuevo.");
+        } else {
+            if ($this->Flete->id) {
+                $this->Flete->saveField('eliminado', 0);
+            }
+            $this->setMessage('success', "El flete fue restaurado exitosamente.");
+        }
+        return $this->redirect(array('action' => 'fletesEliminados'));
     }
 
     public function cargas()
@@ -209,6 +250,29 @@ class AdminController extends AppController
 
 
 
+        }
+    }
+
+    public function addFlete(){
+
+        $provincias = $this->Provincia->find('list', array(
+            'fields'     => array('Provincia.id', 'Provincia.nombre')
+        ));
+        $this->set(compact('provincias'));
+
+        if ($this->request->is('post')) {
+
+            $data = $this->request->data;
+
+            $this->Flete->create();
+
+            if ($this->Flete->save($data['Flete'])){
+                $this->setMessage('success', "El Flete fue creado exitosamente.");
+                return $this->redirect(array('action' => 'fletes'));
+            } else {
+                $this->setMessage('error', "El Flete no pudo ser creado.");
+                return $this->redirect(array('action' => 'addFlete'));
+            }
         }
     }
 

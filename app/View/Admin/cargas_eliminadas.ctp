@@ -42,7 +42,6 @@
 
             <td>
                 <a href="/admin/restoreCarga/<?php echo $carga['Carga']['id']; ?>">Restaurar</a>
-                &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="/admin/editCarga/<?php echo $carga['Carga']['id']; ?>">Editar</a>
             </td>
         </tr>

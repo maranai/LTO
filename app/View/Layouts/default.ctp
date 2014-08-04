@@ -42,6 +42,7 @@ $title_for_layout = '';
 //    JS imports
     echo $this->Html->script('/js/jquery/jquery-2.0.3.min');
     echo $this->Html->script('/js/jquery/ui/jquery-ui');
+    echo $this->Html->script('/js/jquery/ui/datepicker-es');
     echo $this->Html->script('/js/utils');
     echo $this->Html->script('/js/jquery.pnotify.min');
 

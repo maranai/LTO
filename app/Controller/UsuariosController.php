@@ -47,11 +47,21 @@ class UsuariosController extends AppController {
         if ( $this->RequestHandler->isAjax() ) {
             Configure::write ('debug', 0 );
             $this->autoRender=false;
-            $users=$this->Usuario->find('all',array('conditions'=>array('Usuario.nombre LIKE'=>'%'.$_GET['term'].'%')));
+            $users=$this->Usuario->find('all',
+                array(
+                    'conditions'=>array(
+                        'OR' => array(
+                            array('Usuario.nombre LIKE'=>'%'.$_GET['term'].'%'),
+                            array('Usuario.email LIKE'=>'%'.$_GET['term'].'%'),
+                            array('Usuario.apellido1 LIKE'=>'%'.$_GET['term'].'%')
+                        )
+                    )
+                ));
+
             $i=0;
             foreach($users as $user){
                 $response[$i]['id']= $user['Usuario']['id'];
-                $response[$i]['value']= $user['Usuario']['id'] . " / " . $user['Usuario']['nombre'] . ' ' . $user['Usuario']['apellido1'];
+                $response[$i]['value']= $user['Usuario']['id'] . " / " . $user['Usuario']['nombre'] . ' ' . $user['Usuario']['apellido1'] . ' / ' . $user['Usuario']['email'];
                 $i++;
             }
             echo json_encode($response);

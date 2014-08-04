@@ -239,6 +239,46 @@ class AdminController extends AppController
                 $data['Carga']['tipo_id'] = $id['Tipo']['id'];
             }
 
+            if (isset($data['Carga']['volumen']) && !empty($data['Carga']['volumen'])){
+                $data['Carga']['unidad_dimensiones'] = null;
+            } else {
+                $data['Carga']['unidad_volumen'] = null;
+            }
+
+            switch($data['Carga']['fecha_para_carga']){
+                case 0: //Lo más pronto posible
+                    $data['Carga']['fecha'] = null;
+                    break;
+                case 1: //Especificar fecha
+                    $data['Carga']['fecha_inicio_rango'] = null;
+                    $data['Carga']['fecha_fin_rango'] = null;
+                    $data['Carga']['fecha'] = date('Y-m-d', strtotime($data['Carga']['fecha']));
+                    break;
+                case 2: //Esta semana
+                    $start = strtotime('last Sunday', time());
+                    $end = strtotime('next Sunday', time());
+                    $data['Carga']['fecha_inicio_rango'] = date('Y-m-d', $start);
+                    $data['Carga']['fecha_fin_rango'] = date('Y-m-d', $end);
+                    break;
+                case 3: //Prox semana
+
+                    $start = strtotime('next Sunday', time());
+                    $end = strtotime('next Sunday + 1 week', time());
+                    $data['Carga']['fecha_inicio_rango'] = date('Y-m-d', $start);
+                    $data['Carga']['fecha_fin_rango'] = date('Y-m-d', $end);
+                    break;
+                case 4: //Este mes
+                    $start = strtotime('first day of this month', time());
+                    $end = strtotime('last day of this month', time());
+                    $data['Carga']['fecha_inicio_rango'] = date('Y-m-d', $start);
+                    $data['Carga']['fecha_fin_rango'] = date('Y-m-d', $end);
+                    break;
+                case 5: //Especificar rango
+                    break;
+
+            }
+
+
 
             if ($this->Carga->save($data['Carga'])){
                 $this->setMessage('success', "La carga fue creada exitosamente.");

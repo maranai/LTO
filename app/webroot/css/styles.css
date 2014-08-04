@@ -127,6 +127,20 @@ div.input{
     display: inline-block;
 }
 
+div.span{
+    display: inline-block;
+}
+
+div.input[type="checkbox"]{
+    display: inline-block;
+}
+
+.requiredField{
+    color: #FF0000;
+    margin-left: 2px;
+    font-size: smaller;
+}
+
 
 /*end of general form styles*/
 
